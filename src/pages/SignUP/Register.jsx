@@ -1,4 +1,3 @@
-
 const Register = () => {
   return (
     <div>
@@ -9,7 +8,7 @@ const Register = () => {
       <p>This is registration form for our team project</p>
       </div>
     </div>
-  )
+  );
 }
 
 export default Register
