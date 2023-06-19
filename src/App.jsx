@@ -1,12 +1,11 @@
 import './App.css';
+import Register from './Pages/SignUP/Register';
 
 function App() {
   return (
-    <main className='text-3xl'>
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo earum
-      eaque soluta dicta sapiente odio! Quas, incidunt reprehenderit nam ex nisi
-      consequuntur, iste possimus dolore totam aspernatur hic, ut doloremque.
-    </main>
+    <div>
+      <Register></Register>
+    </div>
   );
 }
 
