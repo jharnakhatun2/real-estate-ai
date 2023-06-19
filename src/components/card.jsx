@@ -11,10 +11,14 @@ import Tag from './ui/Tag';
 import IconBtn from './ui/Icon-Btn';
 export default function Heading() {
   return (
-    <div className={'flex flex-col relative hover:shadow-xl transition-all '}>
-      <div className='relative mb-6 overflow-hidden h-72 group'>
+    <div
+      className={
+        'flex group card flex-col relative hover:shadow-xl transition-all hover:rounded-none duration-500 rounded-lg overflow-hidden'
+      }
+    >
+      <div className='relative mb-6 overflow-hidden h-72 group image-container'>
         <img
-          className='object-cover object-bottom w-full h-full transition-all duration-1000 delay-300 group-hover:scale-110'
+          className='object-cover object-bottom w-full h-full transition-all'
           src='https://images.unsplash.com/photo-1511452885600-a3d2c9148a31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=421&q=80'
           alt=''
         />
@@ -30,7 +34,7 @@ export default function Heading() {
           </IconBtn>
         </div>
       </div>
-      <div className='pb-5 space-y-3 transition-all duration-1000 hover:pl-5'>
+      <div className='pb-5 space-y-3 transition-all duration-1000 group-[.card:hover]:pl-5 delay-150'>
         <p className='flex items-center gap-2 text-sm font-semibold tracking-wider text-primary'>
           <BsHousesFill />
           Apartment
