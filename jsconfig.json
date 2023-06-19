@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "target": "es6",
+    "module": "esnext",
+    "moduleResolution": "node",
+  },
+  "include": [
+    "src",
+    ".eslintrc.cjs",
+  ],
+  "exclude": [
+    "node_modules",
+    "build",
+    "dist",
+  ]
+}
