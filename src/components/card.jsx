@@ -1,17 +1,36 @@
-import { BsHousesFill, BsBoundingBoxCircles, BsFire } from 'react-icons/bs';
+import {
+  BsHousesFill,
+  BsBoundingBoxCircles,
+  BsFire,
+  BsArrowLeftRight,
+} from 'react-icons/bs';
 import { MdLocationOn } from 'react-icons/md';
 import { FaBed, FaShower } from 'react-icons/fa';
+import { AiOutlineHeart, AiOutlineSearch } from 'react-icons/ai';
+import Tag from './ui/Tag';
+import IconBtn from './ui/Icon-Btn';
 export default function Heading() {
   return (
-    <div className={'grid grid-rows-2'}>
-      <div className='mb-6 overflow-hidden h-72 group'>
+    <div className={'flex flex-col relative hover:shadow-xl transition-all '}>
+      <div className='relative mb-6 overflow-hidden h-72 group'>
         <img
-          className='object-cover w-full h-full transition-all duration-1000 group-hover:scale-110'
-          src='https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=580&q=80'
+          className='object-cover object-bottom w-full h-full transition-all duration-1000 delay-300 group-hover:scale-110'
+          src='https://images.unsplash.com/photo-1511452885600-a3d2c9148a31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=421&q=80'
           alt=''
         />
+        <div className='absolute z-10 flex gap-2 bottom-3 right-3'>
+          <IconBtn>
+            <BsArrowLeftRight />
+          </IconBtn>
+          <IconBtn>
+            <AiOutlineHeart />
+          </IconBtn>
+          <IconBtn>
+            <AiOutlineSearch />
+          </IconBtn>
+        </div>
       </div>
-      <div className='space-y-3'>
+      <div className='pb-5 space-y-3 transition-all duration-1000 hover:pl-5'>
         <p className='flex items-center gap-2 text-sm font-semibold tracking-wider text-primary'>
           <BsHousesFill />
           Apartment
@@ -34,6 +53,10 @@ export default function Heading() {
             (1 month)
           </span>
         </h4>
+      </div>
+      <div className='absolute flex gap-2 top-3 left-3'>
+        <Tag secondary>For Rent</Tag>
+        <Tag primary>Featured</Tag>
       </div>
     </div>
   );
