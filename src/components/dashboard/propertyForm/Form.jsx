@@ -9,7 +9,8 @@ export default function Form() {
 
   const onSubmit = (data) => {
     console.log("🚀 ~ file: PropertyForm.jsx:11 ~ onSubmit ~ data:", data);
-  }
+  };
+  
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       {/* location information */}
@@ -38,7 +39,7 @@ export default function Form() {
         <div>
           <label htmlFor="location">Property Condition</label>
           <div>
-            <select name="condition">
+            <select name="condition" {...register('condition')}>
               <option defaultValue hidden>Select</option>
               <option value="Excellent">Excellent</option>
               <option value="Good">Good</option>
@@ -51,7 +52,7 @@ export default function Form() {
         <div>
           <label htmlFor="location">Recent Renovations</label>
           <div>
-            <select name="condition">
+            <select name="renovation" {...register('renovation')}>
               <option defaultValue hidden>Select</option>
               <option value="Yes">Yes</option>
               <option value="No">No</option>
@@ -75,9 +76,9 @@ export default function Form() {
       </div>
       {/* Zoning and Land Use */}
       <div>
-        <label htmlFor="location">Zoning and Land Use</label>
+        <label htmlFor="zoning">Zoning and Land Use</label>
         <div>
-          <select name="condition">
+          <select name="zoning" {...register('zoning')}>
             <option defaultValue hidden>Select</option>
             <option value="Excellent">Residential</option>
             <option value="Good">Commercial</option>
@@ -87,9 +88,9 @@ export default function Form() {
       </div>
       {/* Purpose of Valuation */}
       <div>
-        <label htmlFor="location">Purpose of Valuation</label>
+        <label htmlFor="purpose">Purpose of Valuation</label>
         <div>
-          <select name="condition">
+          <select name="purpose" {...register('purpose')}>
             <option defaultValue hidden>Select</option>
             <option value="Excellent">Selling</option>
             <option value="Good">Refinancing</option>
