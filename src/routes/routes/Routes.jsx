@@ -1,3 +1,4 @@
+import PropertyForm from "components/dashboard/propertyForm/PropertyForm";
 import NotFound from "pages/notFound/NotFound";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
@@ -21,7 +22,10 @@ export const router = createBrowserRouter([
     element: <Dashboard />,
     errorElement: <NotFound />,
     children: [
-      
+      {
+        path: '/dashboard',
+        element: <PropertyForm/>
+      }
     ]
   }
 ]);

@@ -4,10 +4,10 @@ import Navbar from "../../components/navbar/Navbar";
 
 export default function Dashboard() {
   return (
-    <>
+    <section className="container mx-auto">
       <Navbar />
       <Outlet />
       <Footer/>
-    </>
+    </section>
   )
 }
