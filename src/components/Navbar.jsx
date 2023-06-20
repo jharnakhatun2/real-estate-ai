@@ -1,18 +1,20 @@
-import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import Button from './ui/Button';
+import { Fragment } from 'react';
 
 const routes = [
-  { label: `Farmer's Markets`, href: '/markets' },
-  { label: `Producers`, href: '/producers' },
-  { label: `Home cooks`, href: '/homecooks' },
-  // { label: `Log in`, href: 'https://culineer.net/#/login' },
+  { label: `about`, href: '/' },
+  { label: `properties`, href: '/' },
+  { label: `blog`, href: '/' },
+  { label: `contact`, href: '/' },
 ];
 
 export default function Navbar() {
   return (
     <nav
       className={
-        'mx-auto max-w-[1600px] bg-white px-20 py-4 shadow-lg lg:px-32 lg:py-6'
+        'mx-auto max-w-[1600px] bg-white px-8 py-8   shadow-lg lg:px-32 lg:py-4'
       }
     >
       <div className={'hidden xl:block'}>
@@ -20,9 +22,9 @@ export default function Navbar() {
           <div>
             <a href={'/'}>
               <img
-                className={'h-16'}
-                src={'/assets/images/culineer_logo.svg'}
-                alt={'Culineer Logo'}
+                className={'h-12'}
+                src={'/assets/images/logo.png'}
+                alt={'Predictiville Logo'}
               />
             </a>
           </div>
@@ -37,7 +39,7 @@ export default function Navbar() {
                 <li
                   key={route.label}
                   className={
-                    'mx-4 whitespace-nowrap text-base hover:text-primary'
+                    'mx-4 whitespace-nowrap text-secondary text-[15px] hover:text-primary'
                   }
                 >
                   <a href={route.href}>{route.label}</a>
@@ -47,7 +49,7 @@ export default function Navbar() {
           </div>
           <div>
             <a href={'/pricing'}>
-              <Button>Enhance Your Listing</Button>
+              <Button>Create a Property</Button>
             </a>
             <a href={'/login'}>
               <Button ghost>Login</Button>
@@ -56,13 +58,14 @@ export default function Navbar() {
         </div>
       </div>
       <div className={'xl:hidden'}>
+        {/* mobile */}
         <div className={'flex items-center'}>
           <div>
             <a href={'/'}>
               <img
                 className={'h-16'}
-                src={'/assets/images/culineer_logo.svg'}
-                alt={'Culineer Logo'}
+                src={'/assets/images/logo.png'}
+                alt={'Predictiville Logo'}
               />
             </a>
           </div>
@@ -74,7 +77,7 @@ export default function Navbar() {
                 className={'focus:outline-none'}
                 aria-label='menu'
               >
-                <FontAwesomeIcon icon={faBars} className={'h-6 w-6'} />
+                <GiHamburgerMenu className={'h-6 w-6 text-primary'} />
               </Popover.Button>
 
               <Popover.Overlay className='fixed inset-0 z-20 bg-black opacity-30' />
@@ -97,9 +100,9 @@ export default function Navbar() {
                     <div>
                       <a href={'/'} onClick={() => close()}>
                         <img
-                          className={'mb-8 h-16'}
-                          src={'/assets/images/culineer_logo.svg'}
-                          alt={'Culineer Logo'}
+                          className={'mb-8 h-10'}
+                          src={'/assets/images/logo.png'}
+                          alt={'Predictiville Logo'}
                         />
                       </a>
 
@@ -124,7 +127,7 @@ export default function Navbar() {
                               'rounded-full bg-primary py-3 px-8 text-center text-white'
                             }
                           >
-                            Get Started
+                            Create your Property
                           </div>
                         </a>
                       </div>
