@@ -4,7 +4,7 @@ export default function Form() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
@@ -12,7 +12,7 @@ export default function Form() {
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* Location Information */}
+      {/* location information */}
       <div>
         <label htmlFor="location">Location</label>
         <div>
@@ -22,7 +22,7 @@ export default function Form() {
           <input type="number" name="zipCode" placeholder="Zip Code" {...register('zipCode')} />
         </div>
       </div>
-      {/* Property Details */}
+      {/* property details */}
       <div>
         <label htmlFor="location">Property Details</label>
         <div>
@@ -32,30 +32,73 @@ export default function Form() {
             {...register('squareFootage')} />
         </div>
       </div>
-      {/* Property Condition */}
+      {/* property condition */}
       <div>
-        <label htmlFor="location">Property Condition</label>
+        {/* condition */}
+        <div>
+          <label htmlFor="location">Property Condition</label>
+          <div>
+            <select name="condition">
+              <option defaultValue hidden>Select</option>
+              <option value="Excellent">Excellent</option>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+              <option value="Poor">Poor</option>
+            </select>
+          </div>
+        </div>
+        {/* renovations */}
+        <div>
+          <label htmlFor="location">Recent Renovations</label>
+          <div>
+            <select name="condition">
+              <option defaultValue hidden>Select</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      {/* comparable sales */}
+      <div>
+        <label htmlFor="location">Comparable Sales</label>
+        <div>
+          <input type="text" name="recentSales" placeholder="Recent Sales" {...register('recentSales')} />
+        </div>
+      </div>
+      {/* property features */}
+      <div>
+        <label htmlFor="location">Special Features</label>
+        <div>
+          <input type="text" name="recentSales" placeholder="Recent Sales" {...register('recentSales')} />
+        </div>
+      </div>
+      {/* Zoning and Land Use */}
+      <div>
+        <label htmlFor="location">Zoning and Land Use</label>
         <div>
           <select name="condition">
             <option defaultValue hidden>Select</option>
-            <option value="Excellent">Excellent</option>
-            <option value="Good">Good</option>
-            <option value="Fair">Fair</option>
-            <option value="Poor">Poor</option>
+            <option value="Excellent">Residential</option>
+            <option value="Good">Commercial</option>
+            <option value="Fair">Mixed-Use</option>
           </select>
         </div>
       </div>
-      {/* Property Details */}
+      {/* Purpose of Valuation */}
       <div>
-        <label htmlFor="location">Recent Renovations</label>
+        <label htmlFor="location">Purpose of Valuation</label>
         <div>
           <select name="condition">
             <option defaultValue hidden>Select</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
+            <option value="Excellent">Selling</option>
+            <option value="Good">Refinancing</option>
+            <option value="Fair">Insurance</option>
           </select>
         </div>
       </div>
+      {/* submit */}
+      <button className="px-4 py-2 my-4 bg-slate-900 text-white" type="submit">Generate Valuation</button>
     </form>
   )
 }
