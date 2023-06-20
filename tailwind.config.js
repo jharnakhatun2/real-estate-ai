@@ -5,7 +5,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'indigo',
+        primary: '#307cd5',
+        secondary: '#6c757d',
+        base: '#f8f9fa',
       },
     },
   },
