@@ -1,3 +1,4 @@
+import NotFound from "pages/notFound/NotFound";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Dashboard from "../../pages/dashboard/Dashboard";
@@ -7,6 +8,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <Main />,
+    errorElement: <NotFound/>,
     children: [
       {
         path: '/',
@@ -16,6 +18,10 @@ export const router = createBrowserRouter([
   },
   {
     path: '/dashboard',
-    element: <Dashboard/>
+    element: <Dashboard />,
+    errorElement: <NotFound />,
+    children: [
+      
+    ]
   }
 ]);
