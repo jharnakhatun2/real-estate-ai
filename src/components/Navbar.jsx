@@ -1,7 +1,8 @@
 import { Popover, Transition } from '@headlessui/react';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import Button from './ui/Button';
 import { Fragment } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { FaSearch } from 'react-icons/fa';
+import Button from './ui/Button';
 
 const routes = [
   { label: `about`, href: '/' },
@@ -45,6 +46,9 @@ export default function Navbar() {
                   <a href={route.href}>{route.label}</a>
                 </li>
               ))}
+              <li>
+                <FaSearch className='mt-1 cursor-pointer hover:text-primary text-secondary' />
+              </li>
             </ul>
           </div>
           <div>
