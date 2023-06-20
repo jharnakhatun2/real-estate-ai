@@ -1,7 +1,6 @@
 import { Popover, Transition } from '@headlessui/react';
 import { Fragment } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { FaSearch } from 'react-icons/fa';
 import Button from './ui/Button';
 
 const routes = [
