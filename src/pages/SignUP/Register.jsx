@@ -29,7 +29,6 @@ const Register = () => {
                 User name
               </label>
             </div>
-
             {/* <!--Email input--> */}
             <div className="relative mb-3">
               <input
