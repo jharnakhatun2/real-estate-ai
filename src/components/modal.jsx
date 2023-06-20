@@ -25,9 +25,16 @@ export default function Modal() {
         >
           <TextEditor />
           <div className='absolute flex gap-4 right-4 top-3'>
-            <FaFilePdf className='text-[#444] cursor-pointer hover:text-red-800' />
-            <FaSave className='text-[#444] cursor-pointer hover:text-green-700 text-lg' />
+            <FaFilePdf
+              title='Download as PDF'
+              className='text-[#444] cursor-pointer hover:text-red-800 text-lg'
+            />
+            <FaSave
+              title='Save File'
+              className='text-[#444] cursor-pointer hover:text-green-700 text-lg'
+            />
             <AiFillCloseCircle
+              title='Close Editor'
               onClick={() => setIsOpen(false)}
               className='text-[#444] cursor-pointer hover:text-red-500 text-lg'
             />

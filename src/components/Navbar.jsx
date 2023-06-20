@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav
       className={
-        'mx-auto max-w-[1600px] bg-white px-8 py-8   shadow-lg lg:px-32 lg:py-4'
+        'mx-auto max-w-[1600px] bg-white px-8 py-8  animate-fade-down shadow-lg lg:px-32 lg:py-4'
       }
     >
       <div className={'hidden xl:block'}>

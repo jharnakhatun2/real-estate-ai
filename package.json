@@ -16,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "react-quill": "^2.0.0",
-    "tailwind-merge": "^1.13.2"
+    "tailwind-merge": "^1.13.2",
+    "tailwindcss-animated": "^1.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
