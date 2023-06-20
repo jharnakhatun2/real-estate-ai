@@ -46,9 +46,6 @@ export default function Navbar() {
                   <a href={route.href}>{route.label}</a>
                 </li>
               ))}
-              <li>
-                <FaSearch className='mt-1 cursor-pointer hover:text-primary text-secondary' />
-              </li>
             </ul>
           </div>
           <div>
