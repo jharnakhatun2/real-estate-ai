@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 export default function DashboardLayout() {
   return (
-    <section>
+    <section className="container mx-auto">
       <Navbar />
       <Outlet/>
     </section>
