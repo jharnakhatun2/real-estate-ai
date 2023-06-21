@@ -4,7 +4,9 @@ import { router } from './routes/routes/Routes';
 
 function App() {
   return (
-    <RouterProvider router={router}/>
+    <div className="font-sen">
+      <RouterProvider router={router} />
+    </div>
   );
 }
 

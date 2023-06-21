@@ -3,7 +3,11 @@ export default {
   darkMode: ['class'],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sen: ['Sen', 'sans-serif']
+      }
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),
