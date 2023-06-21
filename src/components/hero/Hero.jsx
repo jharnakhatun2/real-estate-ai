@@ -11,7 +11,7 @@ export default function Hero() {
         </div>
         {/* search inputs */}
         <div className="flex gap-4">
-          <input type="text" className="w-2/4" placeholder="Enter a location to search here" />
+          <input type="text" className="w-2/4 border-none" placeholder="Enter a location to search here" />
           <button type="button" className="bg-indigo-500 px-14 text-white font-semibold" >Search</button>
         </div>
       </div>
