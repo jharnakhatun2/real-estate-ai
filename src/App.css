@@ -7,17 +7,15 @@
   align-items: center;
   min-height: 100vh;
   font-family: "Jost", sans-serif;
-  background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+  background: #ffffff;
 }
 .form-main {
   width: 350px;
   height: 500px;
-  background: red;
+  background: #bcb5f5;
   overflow: hidden;
-  background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
-    no-repeat center/ cover;
   border-radius: 10px;
-  box-shadow: 5px 20px 50px #000;
+  box-shadow: 5px 10px 50px #d3d1d199;
 }
 #chk {
   display: none;
@@ -85,7 +83,7 @@
 }
 
 .social-container a {
-  border: 1px solid #dddddd;
+  border: 1px solid #edebeb;
   border-radius: 50%;
   display: inline-flex;
   justify-content: center;
@@ -93,11 +91,11 @@
   margin: 0 6px;
   height: 40px;
   width: 40px;
-  color: #f8f9fad3;
+  color: #515050d3;
   transform: scale(1.1, 1.1);
 }
 .social-container a:hover {
-  color: #007bff;
+  color: #7c6ee4;
   border: 1px solid #77b7fc;
   transform: scale(1, 1);
   transition: transform 0.2s ease-in-out;
@@ -106,5 +104,5 @@
   color: #444546d3 !important;
 }
 .social-icon a:hover {
-  color: #007bff !important;
+  color: #7c6ee4 !important;
 }
