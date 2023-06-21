@@ -1,3 +1,4 @@
+import { generatePropertyInfo } from "api/ai";
 import { useForm } from "react-hook-form";
 
 export default function Form() {
@@ -9,6 +10,17 @@ export default function Form() {
 
   const onSubmit = (data) => {
     console.log("🚀 ~ file: PropertyForm.jsx:11 ~ onSubmit ~ data:", data);
+    const arr = Object.entries(data);
+    const joinedArr = arr.map((pair) => pair.join(':'));
+    const finalPromptData = joinedArr.join(', ');
+    const prompt = { prompt: finalPromptData, size: 'medium' };
+    // send request to generate info
+    generatePropertyInfo(prompt)
+      .then((data) => {
+        console.log(data?.imageUrl, data?.createdText);
+      }).catch((err) => {
+        console.log(err?.message);
+      })
   };
   
   return (
@@ -34,7 +46,8 @@ export default function Form() {
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
                         Street Address
                       </label>
-                      <input type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" name="street" {...register("street", { required: "Street is required" })} />
+                      <input type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" name="streetAddress"
+                        {...register("streetAddress", { required: "Street Address is required" })} />
                       {errors.street && <p className="mt-1 text-red-500 font-medium">{errors?.street.message}</p>}
                     </div>
                   </div>
@@ -76,7 +89,7 @@ export default function Form() {
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
                         Number of Bedrooms
                       </label>
-                      <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" name="bedrooms" {...register("bedrooms", { required: "Bedrooms is required" })} />
+                      <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" name="numberOfBedrooms" {...register("numberOfBedrooms", { required: "Number of Bedrooms is required" })} />
                       {errors.bedrooms && <p className="mt-1 text-red-500 font-medium">{errors?.bedrooms.message}</p>}
                     </div>
                   </div>
@@ -85,7 +98,7 @@ export default function Form() {
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
                         Number of Bathrooms
                       </label>
-                      <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" name="bathrooms" {...register("bathrooms", { required: "Bathrooms is required" })} />
+                      <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" name="numberOfBathrooms" {...register("numberOfBathrooms", { required: "Number of Bathrooms is required" })} />
                       {errors.bathrooms && <p className="mt-1 text-red-500 font-medium">{errors?.bathrooms.message}</p>}
                     </div>
                   </div>
@@ -94,7 +107,7 @@ export default function Form() {
                       <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
                         Square Footage
                       </label>
-                      <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" name="footage" {...register("footage", { required: "Square Footage is required" })} />
+                      <input type="number" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" name="squareFootage" {...register("squareFootage", { required: "Square Footage is required" })} />
                       {errors.footage && <p className="mt-1 text-red-500 font-medium">{errors?.footage.message}</p>}
                     </div>
                   </div>

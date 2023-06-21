@@ -106,3 +106,6 @@
 .social-icon a:hover {
   color: #7c6ee4 !important;
 }
+#chk:checked ~ .signup label {
+  transform: scale(0.6);
+}

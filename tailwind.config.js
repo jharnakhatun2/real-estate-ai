@@ -7,7 +7,11 @@ export default {
     './node_modules/tw-elements/dist/js/**/*.js'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sen: ['Sen', 'sans-serif']
+      }
+    },
   },
   plugins: [require('@tailwindcss/forms'),require('tw-elements/dist/plugin.cjs')],
 };
