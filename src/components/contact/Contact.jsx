@@ -1,12 +1,3 @@
-// export default function Contact() {
-//   return (
-//     <section>
-//       <h1>contact page</h1>
-//     </section>
-//   );
-// }
-
-import React from "react";
 import Lottie from "lottie-react";
 import contact2 from "../../assets/Animation/contact.json";
 
