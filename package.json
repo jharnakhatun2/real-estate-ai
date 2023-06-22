@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^9.22.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.9.0",
     "react-hook-form": "^7.45.0",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^4.9.0",
     "react-router-dom": "^6.13.0",
     "tw-elements": "^1.0.0-beta2",
     "vite-jsconfig-paths": "^2.0.1"
@@ -24,7 +26,7 @@
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.38.0",
+    "eslint": "^8.43.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
