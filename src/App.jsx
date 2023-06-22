@@ -1,17 +1,12 @@
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
-import Footer from './components/footer';
-import Modal from './components/modal';
-import FeaturedProperties from './features/featured-properties';
+import { router } from './routes/routes/Routes';
 
 function App() {
   return (
-    <main>
-      <Navbar />
-      <FeaturedProperties />
-      <Modal />
-      <Footer />
-    </main>
+    <div className="font-sen">
+      <RouterProvider router={router} />
+    </div>
   );
 }
 
