@@ -4,10 +4,9 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import Button from './ui/Button';
 
 const routes = [
-  { label: `about`, href: '/' },
+  { label: `home`, href: '/' },
   { label: `properties`, href: '/' },
-  { label: `blog`, href: '/' },
-  { label: `contact`, href: '/' },
+  { label: `login/registration`, href: '/' },
 ];
 
 export default function Navbar() {
@@ -50,9 +49,6 @@ export default function Navbar() {
           <div>
             <a href={'/pricing'}>
               <Button>Create a Property</Button>
-            </a>
-            <a href={'/login'}>
-              <Button ghost>Login</Button>
             </a>
           </div>
         </div>
