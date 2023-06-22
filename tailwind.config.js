@@ -1,9 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", "./node_modules/tw-elements/dist/js/**/*.js"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sen: ["Sen", "sans-serif"],
+      },
+    },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("@tailwindcss/forms"), require("tw-elements/dist/plugin.cjs"), require("daisyui")],
 };

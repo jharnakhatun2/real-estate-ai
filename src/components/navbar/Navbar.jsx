@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 export default function Navbar() {
   return (
-    <nav>
-      <h2>this is nav</h2>
-    </nav>
+    <>
+      <Link to="/signIn">Form</Link>
+    </>
   );
 }
