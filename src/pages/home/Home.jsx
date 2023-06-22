@@ -1,4 +1,5 @@
-import Contact from "pages/Contact/Contact";
+import Contact from "components/contact/Contact";
+import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
 
 export default function Home() {
   return (
@@ -6,6 +7,7 @@ export default function Home() {
       <h2>this is home</h2>
       <h3>hello</h3>
       <Contact></Contact>
+      <DashboardLayout></DashboardLayout>
     </main>
   );
 }
