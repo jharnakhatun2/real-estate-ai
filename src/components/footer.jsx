@@ -20,8 +20,8 @@ export default function Footer() {
             <div className='col-span-8 border-r border-gray-100 dark:border-gray-800 md:col-span-2 lg:col-span-3'>
               <div className='flex items-center justify-between gap-6 py-6 border-b border-white dark:border-gray-800 md:block md:space-y-6 md:border-none md:py-0'>
                 <img
-                  src='images/logo.svg'
-                  alt='logo tailus'
+                  src='/assets/images/logo.png'
+                  alt='logo PreditiVelle'
                   width={100}
                   height={42}
                   className='w-32 dark:brightness-200 dark:grayscale'
@@ -182,7 +182,7 @@ export default function Footer() {
               </div>
               <div className='flex justify-between py-4 pb-8 border-t border-gray-100 dark:border-gray-800 md:pl-16'>
                 <span>
-                  © tailus 2003 - <span id='year' />{' '}
+                  © PreditiVelle 2003 - <span id='year' />{' '}
                 </span>
                 <span>All right reserved</span>
               </div>
