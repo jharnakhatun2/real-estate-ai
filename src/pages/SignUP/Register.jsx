@@ -1,22 +1,49 @@
+import { AuthContext } from "context/authProvider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-
-import { Link } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset
   } = useForm();
-  const {createUser} = useContext();
-  const handleLogin = (data) => {
+  const {createUser, updateUser, providerLogin} = useContext(AuthContext);
+  const [signupError, setSignUpError] = useState('');
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+  const navigate = useNavigate();
+
+  const handleRegister = (data) => {
+    setSignUpError('');
     createUser(data.email, data.password)
     .then(result =>{
       const user = result.user;
       console.log(user);
+      const userName = {
+        displayName: data.username
+      }
+      updateUser(userName)
+      .then(() => {})
+      .catch(err => console.log(err));
+      toast('Your registration is Successful (•‿•)', {
+        style: {
+          border: '1px solid #fff',
+          backgroundColor: '#4cd137',
+          color: '#000'
+        },
+      });
+      navigate('/dashboard');
+      reset();
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+      console.log(err);
+      setSignUpError(err.message);
+    });
   };
 
   
@@ -28,16 +55,41 @@ const Register = () => {
     setIsChecked(event.target.checked);
   };
 
-  // // Signup with Google
-  // const handleGoogleSignIn = () => {
-  //   providerLogin(googleProvider)
-  //     .then((result) => {
-  //       const user = result.user;
-  //       console.log(user);
-  //       navigate("/");
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  // Signup with Google
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast('Your registration is Successful (•‿•)', {
+          style: {
+            border: '1px solid #fff',
+            backgroundColor: '#4cd137',
+            color: '#000'
+          },
+        });
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  // Signup with Github
+  const handleGithubSignIn = () => {
+    providerLogin(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast('Your registration is Successful (•‿•)', {
+          style: {
+            border: '1px solid #fff',
+            backgroundColor: '#4cd137',
+            color: '#000'
+          },
+        });
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -56,7 +108,7 @@ const Register = () => {
                 {/* Registration with Social media */}
                 <div className="flex items-center justify-center space-x-4 mt-3">
                   {" "}
-                  <button className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                  <button onClick={handleGithubSignIn} className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                     {" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +124,7 @@ const Register = () => {
                     Github{" "}
                   </button>{" "}
                   {/* SignIn with Google */}
-                  <button  className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                  <button onClick={handleGoogleSignIn} className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                     {" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +161,7 @@ const Register = () => {
                 Or sign up with credentials{" "}
               </p>{" "}
               {/* Registration Form */}
-              <form onSubmit={handleSubmit(handleLogin)} className="mt-6">
+              <form onSubmit={handleSubmit(handleRegister)} className="mt-6">
                 {" "}
                 {/* User Name Input field */}
                 <div className="relative">
@@ -180,6 +232,10 @@ const Register = () => {
                         value: 8,
                         message: "Password must be 8 characters or longer",
                       },
+                      pattern: {
+                        value: /(?=.*[A-Z])(?=.*[@#$&*])(?=.*[0-9])/,
+                        message: "Password must have uppercase, number and special characters",
+                      },
                     })}
                     className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
                     id="password"
@@ -202,6 +258,11 @@ const Register = () => {
                 {errors.password && (
                   <p className="text-danger" role="alert">
                     {errors.password?.message}
+                  </p>
+                )}
+                {signupError && (
+                  <p className="text-danger" role="alert">
+                    {signupError}
                   </p>
                 )}{" "}
                 <p className="mt-4 italic text-gray-500 font-light text-xs">
@@ -242,6 +303,7 @@ const Register = () => {
                     Create Account{" "}
                   </button>{" "}
                 </div>
+                
                 {" "}
               </form>{" "}
             </div>{" "}

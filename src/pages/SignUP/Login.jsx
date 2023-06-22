@@ -1,11 +1,76 @@
+import { AuthContext } from "context/authProvider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Login() {
-  const { register, formState: { errors }, handleSubmit } = useForm();
+  const { register, formState: { errors }, handleSubmit, reset } = useForm();
+  const {signIn, providerLogin} = useContext(AuthContext);
+  const [passwordError, setPasswordError] = useState('');
+  const [logInError, setLogInError] = useState('');
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+  const navigate = useNavigate();
+
   const handleLogin = data => {
-    console.log(data);
+    setLogInError('');
+    setPasswordError('');
+    signIn(data.email, data.password)
+    .then(result =>{
+      const user = result.user;
+      console.log(user);
+      toast('Log In Successful 👍', {
+        style: {
+          border: '1px solid #ffffff',
+          backgroundColor: '#9f95e9'
+        },
+      });
+      navigate('/dashboard');
+      reset();
+    })
+    .catch(err => {
+      console.log(err.message);
+      setPasswordError(err.message);
+      setLogInError(err.message);
+    });
   }
+
+  // Signup with Google
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast('Log In Successful 👍', {
+          style: {
+            border: '1px solid #ffffff',
+            backgroundColor: '#9f95e9'
+          },
+        });
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  // Signup with Github
+  const handleGithubSignIn = () => {
+    providerLogin(githubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast('Log In Successful 👍', {
+          style: {
+            border: '1px solid #ffffff',
+            backgroundColor: '#9f95e9'
+          },
+        });
+        navigate("/dashboard");
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="bg-[#f8f9fa] py-10">
@@ -22,7 +87,7 @@ export default function Login() {
               {" "}
               <div className="flex items-center justify-center space-x-4 mt-3">
                 {" "}
-                <button className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <button onClick={handleGithubSignIn} className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                   {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +102,7 @@ export default function Login() {
                   </svg>{" "}
                   Github{" "}
                 </button>{" "}
-                <button className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <button onClick={handleGoogleSignIn} className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                   {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -134,6 +199,16 @@ export default function Login() {
                 {errors.password && (
                   <p className="text-danger" role="alert">
                     {errors.password?.message}
+                  </p>
+                )}
+                {passwordError && (
+                  <p className="text-danger" role="alert">
+                    {passwordError}
+                  </p>
+                )}{" "}
+                {logInError && (
+                  <p className="text-danger" role="alert">
+                    {logInError}
                   </p>
                 )}{" "}
             
