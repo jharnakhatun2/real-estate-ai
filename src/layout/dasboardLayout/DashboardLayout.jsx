@@ -1,14 +1,14 @@
-import Navbar from "components/navbar/Navbar";
+import Navbar from "components/Navbar";
 import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar/>
       <div className="drawer drawer-mobile">
         <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
-          <Outlet></Outlet>
+          <Outlet/>
         </div>
         <div className="drawer-side border-2 border-e-[#E8E9EB]">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
