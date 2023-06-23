@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "1",
+    "name": "agent1",
+    "image": "https://cdn-icons-png.flaticon.com/512/5517/5517721.png",
+    "totalProperty": "4"
+  },
+  {
+    "_id": "2",
+    "name": "agent2",
+    "image": "https://cdn-icons-png.flaticon.com/512/3456/3456716.png",
+    "totalProperty": "6"
+  },
+  {
+    "_id": "3",
+    "name": "agent3",
+    "image": "https://cdn-icons-png.flaticon.com/512/5514/5514092.png",
+    "totalProperty": "8"
+  }
+]

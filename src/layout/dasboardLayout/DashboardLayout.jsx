@@ -29,6 +29,8 @@
 
 import Navbar from "components/navbar/Navbar";
 import { Link, Outlet } from "react-router-dom";
+import { BiSolidUserCircle } from "react-icons/bi";
+import { MdRealEstateAgent } from "react-icons/md";
 
 const DashboardLayout = () => {
   return (
@@ -41,20 +43,26 @@ const DashboardLayout = () => {
         </div>
         <div className="drawer-side border-2 border-e-[#E8E9EB]">
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-40 text-base-content">
-            <div className="ml-4">
-              <div className="avatar">
-                <div className="w-24 rounded-full ring ring-[#0056D6] ring-offset-base-100 ring-offset-2">
+          <ul className="menu p-4 w-56 text-base-content">
+            <div className=" border-b-2 mt-4 mb-2">
+              <div className="avatar ml-12">
+                <div className="w-24 rounded-full ring ring-[#8879FB] ring-offset-base-100 ring-offset-2">
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBRdmz3LadjgP_7giopi8RU6TJQgE-9IZaYXSJYWHuFv3ty1vbrgMiiU6XqdhxXyFqJqU&usqp=CAU" />
                 </div>
               </div>
-              <h2>User Name</h2>
+              <h2 className="ml-12 mt-3 mb-3">User Name</h2>
             </div>
             <li>
-              <Link to="/dashboard">Dashboard</Link>
+              <Link to="/dashboard">
+                <MdRealEstateAgent />
+                Properties
+              </Link>
             </li>
             <li>
-              <Link to="/dashboard/profile">Profile</Link>
+              <Link to="/dashboard/profile">
+                <BiSolidUserCircle />
+                Profile
+              </Link>
             </li>
           </ul>
         </div>
