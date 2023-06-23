@@ -1,40 +1,32 @@
-import {
-  BsHousesFill,
-  BsBoundingBoxCircles,
-  BsFire,
-  BsArrowLeftRight,
-} from 'react-icons/bs';
-import { MdLocationOn } from 'react-icons/md';
+import { AiOutlineSearch } from 'react-icons/ai';
+import { BsBoundingBoxCircles, BsFire, BsHousesFill } from 'react-icons/bs';
 import { FaBed, FaShower } from 'react-icons/fa';
-import { AiOutlineHeart, AiOutlineSearch } from 'react-icons/ai';
-import Tag from './ui/Tag';
+import { MdLocationOn } from 'react-icons/md';
 import IconBtn from './ui/Icon-Btn';
+import Tag from './ui/Tag';
+import QuickView from './quick-view';
+import { useState } from 'react';
 export default function Heading() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div
       className={
-        'flex group card flex-col relative hover:shadow-xl transition-all hover:rounded-none duration-500 rounded-lg overflow-hidden'
+        'flex group card flex-col relative shadow transition-all hover:rounded-none duration-500 rounded-lg overflow-hidden'
       }
     >
       <div className='relative mb-6 overflow-hidden h-72 group image-container'>
         <img
-          className='object-cover object-bottom w-full h-full transition-all'
+          className='object-cover object-bottom w-full h-full transition-all duration-1000 ease-out delay-100 hover:brightness-75 hover:scale-105'
           src='https://images.unsplash.com/photo-1511452885600-a3d2c9148a31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=421&q=80'
           alt=''
         />
         <div className='absolute z-10 flex gap-2 bottom-3 right-3'>
           <IconBtn>
-            <BsArrowLeftRight />
-          </IconBtn>
-          <IconBtn>
-            <AiOutlineHeart />
-          </IconBtn>
-          <IconBtn>
-            <AiOutlineSearch />
+            <AiOutlineSearch onClick={() => setIsOpen(true)} />
           </IconBtn>
         </div>
       </div>
-      <div className='pb-5 space-y-3 transition-all duration-1000 group-[.card:hover]:pl-5 delay-150'>
+      <div className='pb-5 pl-5 space-y-3 transition-all duration-1000 delay-150'>
         <p className='flex items-center gap-2 text-sm font-semibold tracking-wider text-primary'>
           <BsHousesFill />
           Apartment
@@ -62,6 +54,7 @@ export default function Heading() {
         <Tag secondary>For Rent</Tag>
         <Tag primary>Featured</Tag>
       </div>
+      <QuickView isOpen={isOpen} setIsOpen={setIsOpen} />
     </div>
   );
 }
