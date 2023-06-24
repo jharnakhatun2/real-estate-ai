@@ -1,18 +1,24 @@
 import React from "react";
 
 const BlogCard = ({ blog }) => {
-  const { _id, image, title, description, date } = blog;
+  const { _id, image, title, content, author, date } = blog;
   return (
     <section>
-      <div>
-        <img className="relative z-10 object-cover w-full rounded-md h-96" src={image} alt="" />
+      <div className="mt-8 lg:-mx-6 lg:flex lg:items-center">
+        <img className="object-cover w-full lg:mx-6 lg:w-1/2 rounded-xl h-72 lg:h-96" src={image} alt="" />
 
-        <div className="relative z-20 max-w-lg p-6 mx-auto -mt-20 bg-white rounded-md shadow dark:bg-gray-900">
-          <h2 className="font-semibold text-gray-800  dark:text-white md:text-xl">{title}</h2>
+        <div className="mt-6 lg:w-1/2 lg:mt-0 lg:mx-6 ">
+          <p className="text-sm uppercase">
+            {" "}
+            <span className="text-[#8879FB] font-bold">Author:</span> {author}
+          </p>
 
-          <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">{description.slice(0, 350)}...</p>
+          <a href="#" className="block mt-4 text-2xl font-semibold text-gray-800 hover:underline dark:text-white">
+            {title}
+          </a>
 
-          <p className="mt-3 text-md text-[#8879FB]">{date}</p>
+          <p className="mt-3 text-sm text-gray-500 dark:text-gray-300 md:text-sm">{content.slice(0, 350)}...</p>
+          <p className="mt-3 text-xl font-semibold">{date}</p>
         </div>
       </div>
     </section>
