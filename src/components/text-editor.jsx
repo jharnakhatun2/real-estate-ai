@@ -33,8 +33,6 @@ const TextEditor = () => {
   ];
 
   const handleChange = (value) => {
-    console.log('🛑 ~ handleChange ~ value:', value);
-
     setText(value);
   };
 
@@ -43,7 +41,6 @@ const TextEditor = () => {
   return (
     <div>
       <ReactQuill
-        className=''
         value={text}
         modules={modules}
         formats={formats}

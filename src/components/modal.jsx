@@ -20,24 +20,27 @@ export default function Modal() {
       >
         <Dialog.Panel
           className={
-            'bg-white rounded-xl overflow-hidden ring-2 h-96 ring-secondary'
+            'bg-white rounded-xl   overflow-hidden ring-2 h-96 ring-secondary'
           }
         >
-          <TextEditor />
-          <div className='absolute flex gap-4 right-4 top-3'>
-            <FaFilePdf
-              title='Download as PDF'
-              className='text-[#444] cursor-pointer hover:text-red-800 text-lg'
-            />
-            <FaSave
-              title='Save File'
-              className='text-[#444] cursor-pointer hover:text-green-700 text-lg'
-            />
+          <div className='flex items-center gap-3 my-2 ml-auto mr-2 w-max'>
+            <button className='px-2 py-1 text-xs transition-all rounded hover:bg-black/20'>
+              Download PDF
+            </button>
             <AiFillCloseCircle
               title='Close Editor'
               onClick={() => setIsOpen(false)}
-              className='text-[#444] cursor-pointer hover:text-red-500 text-lg'
+              className='text-[#444]  cursor-pointer hover:text-red-500 text-lg'
             />
+          </div>
+          <div className='relative'>
+            <TextEditor />
+            <div className='absolute flex gap-4 right-4 top-3'>
+              <FaSave
+                title='Save File'
+                className='text-[#444] cursor-pointer hover:text-green-700 text-lg'
+              />
+            </div>
           </div>
         </Dialog.Panel>
       </Dialog>
