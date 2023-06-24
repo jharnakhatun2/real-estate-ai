@@ -15,7 +15,8 @@ export default function Login() {
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
 
-  const handleLogin = data => {
+  const handleLogin = (data) => {
+    data.preventDefault();
     setLogInError('');
     setPasswordError('');
     signIn(data.email, data.password)

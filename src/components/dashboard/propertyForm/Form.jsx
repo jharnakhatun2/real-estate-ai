@@ -1,9 +1,9 @@
 import { generatePropertyInfo } from "api/ai";
-import { useState } from "react";
+
 import { useForm } from "react-hook-form";
 
 export default function Form() {
-  const [isChecked, setIsChecked] = useState(false);
+  
   const {
     register,
     handleSubmit,
@@ -15,6 +15,7 @@ export default function Form() {
     const arr = Object.entries(data);
     const joinedArr = arr.map((pair) => pair.join(":"));
     const finalPromptData = joinedArr.join(", ");
+    console.log(finalPromptData)
     const prompt = { prompt: finalPromptData, size: "medium" };
     // send request to generate info
     generatePropertyInfo(prompt)
@@ -32,10 +33,7 @@ export default function Form() {
   const propertyDetailsInputStyle = ["flex items-center relative w-full mb-3 shadow rounded"]
   const formInputStyle = ["block w-full rounded-l-none rtl:rounded-l rtl:rounded-r-none placeholder-gray-400/70  rounded-lg border-0  bg-white px-5 py-2.5 text-gray-700 focus:border-0 focus:outline-none focus:ring focus:ring-[#7C6EE4]"];
 
-  // Privacy agree checkbox
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-  };
+  
 
   return (
     <div>
@@ -44,7 +42,7 @@ export default function Form() {
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6  rounded-lg bg-blueGray-100 border-0">
             <div className="rounded-t bg-white pb-5">
               <div className="text-center flex justify-between">
-                <h6 className="text-2xl lg:text-4xl font-semibold text-[#9f95e9] drop-shadow-xl">
+                <h6 className="text-2xl lg:text-4xl font-semibold">
                   Property Listing Generator :
                 </h6>
               </div>
@@ -435,45 +433,6 @@ export default function Form() {
                     </div>
                   </div>
                 </div>
-                <div className={formBgColor}>
-                  <h6 className="text-blueGray-400 text-sm pl-5 pb-3 font-bold uppercase">
-                  Description length (words)
-                  </h6>
-                  <div className="flex flex-wrap">
-                    <div className="w-full px-4">
-                      <div className="relative w-full mb-3">
-                        <input
-                          type="number"
-                          value={250}
-                          className={formInputStyles}
-                          name="descriptionLength"
-                          {...register("descriptionLength", {
-                            required: "Specify description maximum length",
-                          })}
-                        />
-                        {errors.descriptionLength && (
-                          <p className="mt-1 text-red-500 font-medium">
-                            {errors?.descriptionLength.message}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                 {/* Checkbox for generate social media poster */}
-                 <div className="mb-5 flex items-center text-gray-500">
-                  {" "}
-                  <input
-                    type="checkbox"
-                    id="remember"
-                    name="remember"
-                    className="mr-2"
-                    onChange={handleCheckboxChange}
-                  />{" "}
-                  <label className="text-sm" htmlFor="remember">
-                    I agree to generate social media poster with AI
-                  </label>
-                </div>
                 <div className="flex flex-col lg:flex-row gap-5 justify-center">
                 <div>
                   <button
@@ -484,7 +443,7 @@ export default function Form() {
                   </button>
                   </div>
                   <div>
-                  <button
+                  {/* <button
                     type="submit"
                     className={`w-full text-white px-20 py-3 uppercase bg-[#9f95e9] hover:bg-[#7C6EE4] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5 ${
                       isChecked ? "" : "opacity-50 cursor-not-allowed"
@@ -492,7 +451,7 @@ export default function Form() {
                     disabled={!isChecked}
                   >
                     Generate Poster
-                  </button>
+                  </button> */}
                   </div>
                 </div>
               </form>

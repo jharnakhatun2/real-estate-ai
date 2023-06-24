@@ -16,9 +16,11 @@ const Register = () => {
   const [signupError, setSignUpError] = useState('');
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
+  const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = (data) => {
+    data.preventDefault();
     setSignUpError('');
     createUser(data.email, data.password)
     .then(result =>{
@@ -49,9 +51,7 @@ const Register = () => {
   
 
   // Privacy agree checkbox
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleCheckboxChange = (event) => {
+   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
 
