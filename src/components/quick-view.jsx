@@ -3,6 +3,7 @@ import { cn } from 'lib/utils';
 import { useEffect } from 'react';
 import { HiLocationMarker } from 'react-icons/hi';
 import { BsFillTagsFill } from 'react-icons/bs';
+import { MdDone } from 'react-icons/md';
 
 export default function QuickView({ isOpen, setIsOpen }) {
   useEffect(() => {
@@ -55,11 +56,27 @@ export default function QuickView({ isOpen, setIsOpen }) {
             <p className=' my-5 text-gray-700 text-[20px] font-bold leading-7'>
               Description
             </p>
-            <div className='leading-7 text-zinc-500'>
+            <p className='leading-7 text-zinc-500'>
               Bibendum purus aenean mus aenean eu interdum nonummy ipsum ad
               consequat. Dui eros donec faucibus convallis tempus rutrum id
               donec mus hymenaeos placerat congue curae mauris turpis gravida
               viverra consequat consequat gravida luctus.
+            </p>
+            <div className='flex items-start gap-10'>
+              <p className='font-semibold leading-7 text-zinc-500'>
+                Highlights:
+              </p>
+              <div className='mt-1'>
+                <p className='flex items-center gap-5 text-zinc-500'>
+                  <MdDone /> Regular Fit.
+                </p>
+                <p className='flex items-center gap-5 text-zinc-500'>
+                  <MdDone /> Regular Fit.
+                </p>
+                <p className='flex items-center gap-5 text-zinc-500'>
+                  <MdDone /> Regular Fit.
+                </p>
+              </div>
             </div>
             {/* description section end */}
           </div>
