@@ -6,7 +6,7 @@ const Faq = () => {
   return (
     <section className="mt-40 dark:text-[#fff]">
       <div className="grid grid-cols-1 lg:grid-cols-2 px-10">
-        <div className="mt-32">
+        <div className="-mt-8 sm:mt-32">
           <div className="">
             <Lottie animationData={FaqAnimation} loop={true}></Lottie>
           </div>
