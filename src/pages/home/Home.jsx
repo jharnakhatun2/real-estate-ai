@@ -1,11 +1,10 @@
-import Contact from "components/contact/Contact";
-import HeroTwo from "components/hero/HeroTwo";
+import Contact from "components/Contact";
+import Hero from "components/hero/Hero";
 
 export default function Home() {
   return (
     <main>
-      {/* <Hero /> */}
-      <HeroTwo/>
+      <Hero />
       <Contact />
     </main>
   );

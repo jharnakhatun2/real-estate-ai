@@ -7,6 +7,9 @@ export default {
       fontFamily: {
         sen: ["Sen", "sans-serif"],
       },
+      colors: {
+        realState: "#7c6ee4",
+      }
     },
   },
   plugins: [
