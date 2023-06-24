@@ -3,8 +3,12 @@ import NotFound from "pages/notFound/NotFound";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Home from "../../pages/home/Home";
-import Profile from "pages/dashboard/profile/Profile";
 import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
+import Register from "pages/signUP/Register";
+import Login from "pages/signUP/Login";
+import Properties from "pages/properties/Properties";
+import Property from "pages/properties/Property";
+
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +20,22 @@ export const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
+      {
+        path: "/properties",
+        element: <Properties/>,
+      },
+      {
+        path: "/properties/:id",
+        element: <Property/>,
+      },
+      {
+        path: "/register",
+        element: <Register/>,
+      },
+      {
+        path: "/signIn",
+        element: <Login/>,
+      },
     ],
   },
   {
@@ -26,11 +46,7 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <PropertyForm />,
-      },
-      {
-        path: "/dashboard/profile",
-        element: <Profile></Profile>,
-      },
+      }
     ],
   },
 ]);

@@ -5,16 +5,10 @@ import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-<<<<<<< HEAD
     <>
     <RouterProvider router={router}/>
     <Toaster />
     </>
-=======
-    <div className="font-sen">
-      <RouterProvider router={router} />
-    </div>
->>>>>>> stage
   );
 }
 

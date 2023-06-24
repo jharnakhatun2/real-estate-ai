@@ -10,11 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "firebase": "^9.22.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-=======
     "@headlessui/react": "^1.7.15",
     "clsx": "^1.2.1",
     "daisyui": "^2.51.5",
@@ -24,10 +20,8 @@
     "react-icons": "^4.9.0",
     "react-quill": "^2.0.0",
     "tailwindcss-animated": "^1.0.1",
->>>>>>> stage
     "react-hook-form": "^7.45.0",
     "react-hot-toast": "^2.4.1",
-    "react-icons": "^4.9.0",
     "react-router-dom": "^6.13.0",
     "tw-elements": "^1.0.0-beta2",
     "vite-jsconfig-paths": "^2.0.1",

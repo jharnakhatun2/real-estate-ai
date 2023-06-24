@@ -73,7 +73,7 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-[#f8f9fa] py-10">
+    <div className="bg-[#f8f9fa] pt-32 pb-20">
       {" "}
       <div className="mx-5 md:mx-20 lg:mx-0">
         <div className="lg:w-1/2 mx-auto shadow-lg">
@@ -217,7 +217,7 @@ export default function Login() {
                 {" "}
                 <button type="submit" className="text-white py-2 px-4 uppercase rounded bg-[#9f95e9] hover:bg-[#7C6EE4] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                   {" "}
-                  Sign in{" "}
+                  Log in{" "}
                 </button>{" "}
               </div>{" "}
             </form>{" "}
