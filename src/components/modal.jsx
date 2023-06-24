@@ -1,9 +1,9 @@
-import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
+import { useState } from 'react';
+import { AiFillCloseCircle } from 'react-icons/ai';
+import { FaSave } from 'react-icons/fa';
 import TextEditor from './text-editor';
 import Button from './ui/Button';
-import { FaFilePdf, FaSave } from 'react-icons/fa';
-import { AiFillCloseCircle } from 'react-icons/ai';
 
 export default function Modal() {
   let [isOpen, setIsOpen] = useState(false);
