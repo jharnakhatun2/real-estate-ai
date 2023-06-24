@@ -1,7 +1,9 @@
 import { generatePropertyInfo } from "api/ai";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 export default function Form() {
+  const [isChecked, setIsChecked] = useState(false);
   const {
     register,
     handleSubmit,
@@ -25,9 +27,16 @@ export default function Form() {
   };
 
   const formBgColor = ["shadow bg-indigo-50/50 p-5 mb-10"];
+  const formInputStyles = ["border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"];
   const formLabelStyle = ["py-2.5 px-3 text-gray-500 bg-indigo-50/50 rtl:rounded-r rtl:rounded-l-none rounded-l-lg"];
   const propertyDetailsInputStyle = ["flex items-center relative w-full mb-3 shadow rounded"]
   const formInputStyle = ["block w-full rounded-l-none rtl:rounded-l rtl:rounded-r-none placeholder-gray-400/70  rounded-lg border-0  bg-white px-5 py-2.5 text-gray-700 focus:border-0 focus:outline-none focus:ring focus:ring-[#7C6EE4]"];
+
+  // Privacy agree checkbox
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
   return (
     <div>
       <section className="">
@@ -51,7 +60,7 @@ export default function Form() {
                       <div className="relative w-full mb-3 ">
                         <input
                           type="text"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className={formInputStyles}
                           name="streetAddress"
                           placeholder="Street Address"
                           {...register("streetAddress", {
@@ -69,7 +78,7 @@ export default function Form() {
                       <div className="relative w-full mb-3">
                         <input
                           type="text"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className={formInputStyles}
                           placeholder="City"
                           name="city"
                           {...register("city", {
@@ -87,7 +96,7 @@ export default function Form() {
                       <div className="relative w-full mb-3">
                         <input
                           type="text"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className={formInputStyles}
                           placeholder="State"
                           name="state"
                           {...register("state", {
@@ -105,7 +114,7 @@ export default function Form() {
                       <div className="relative w-full mb-3">
                         <input
                           type="number"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className={formInputStyles}
                           placeholder="Zip Code"
                           name="zipcode"
                           {...register("zipcode", {
@@ -122,7 +131,7 @@ export default function Form() {
                   </div>
                 </div>
                 <div className={formBgColor}>
-                  <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                  <h6 className="text-blueGray-400 text-sm font-bold uppercase pl-5 pb-3">
                     Property Details
                   </h6>
                   <div className="flex flex-wrap">
@@ -196,11 +205,11 @@ export default function Form() {
                     </div>
                 </div>
                 <div className={formBgColor}>
-                  <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                  <h6 className="text-blueGray-400 text-sm pl-5 pb-3 font-bold uppercase">
                     Property Condition
                   </h6>
                   <div className="flex flex-wrap">
-                    <div className="w-full lg:w-1/2 px-4">
+                    <div className="w-full lg:w-1/2 px-5">
                       <div className="relative w-full mb-3">
                         <label
                           className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -210,7 +219,7 @@ export default function Form() {
                         </label>
                         <select
                           name="condition"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className={formInputStyles}
                           {...register("condition", {
                             required: "Condition is required",
                           })}
@@ -218,7 +227,7 @@ export default function Form() {
                           <option defaultValue hidden>
                             Select
                           </option>
-                          <option value="Excellent">Excellent</option>
+                          <option  value="Excellent">Excellent</option>
                           <option value="Good">Good</option>
                           <option value="Fair">Fair</option>
                           <option value="Poor">Poor</option>
@@ -240,7 +249,7 @@ export default function Form() {
                         </label>
                         <select
                           name="renovation"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className={formInputStyles}
                           {...register("renovation", {
                             required: "Renovation is required",
                           })}
@@ -261,22 +270,17 @@ export default function Form() {
                   </div>
                 </div>
                 <div className={formBgColor}>
-                  <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                  <h6 className="text-blueGray-400 text-sm pl-5 pb-3 font-bold uppercase">
                     Comparable Sales
                   </h6>
                   <div className="flex flex-wrap">
-                    <div className="w-full lg:w-1/2 px-4">
+                    <div className="w-full lg:w-1/2 px-5">
                       <div className="relative w-full mb-3">
-                        <label
-                          className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                          htmlFor="firstAddress"
-                        >
-                          First Address
-                        </label>
                         <input
                           type="text"
                           id="firstAddress"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          placeholder="First Address"
+                          className={formInputStyles}
                           name="firstAddress"
                           {...register("firstAddress", {
                             required: "First Address is required",
@@ -291,16 +295,11 @@ export default function Form() {
                     </div>
                     <div className="w-full lg:w-1/2 px-4">
                       <div className="relative w-full mb-3">
-                        <label
-                          className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                          htmlFor="secondAddress"
-                        >
-                          Second Address
-                        </label>
                         <input
                           type="text"
                           id="secondAddress"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          placeholder="Second Address"
+                          className={formInputStyles}
                           name="secondAddress"
                           {...register("secondAddress", {
                             required: "Secondary Address is required",
@@ -316,26 +315,21 @@ export default function Form() {
                   </div>
                 </div>
                 <div className={formBgColor}>
-                  <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                  <h6 className="text-blueGray-400 text-sm pl-5 pb-3 font-bold uppercase">
                     Property Features
                   </h6>
                   <div className="flex flex-wrap">
                     <div className="w-full px-4">
                       <div className="relative w-full mb-3">
-                        <label
-                          className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                          htmlFor="features"
-                        >
-                          Special Features or Upgrades
-                        </label>
-                        <input
+                        <textarea
                           type="text"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          placeholder="Give your property special Features or upgrades .."
+                          className={formInputStyles}
                           name="features"
                           {...register("features", {
                             required: "Features is required",
                           })}
-                        />
+                        ></textarea>
                         {errors.features && (
                           <p className="mt-1 text-red-500 font-medium">
                             {errors?.features.message}
@@ -346,11 +340,11 @@ export default function Form() {
                   </div>
                 </div>
                 <div className={formBgColor}>
-                  <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                  <h6 className="text-blueGray-400 text-sm pl-5 pb-3 font-bold uppercase">
                     Zoning and Land Use
                   </h6>
                   <div className="flex flex-wrap">
-                    <div className="w-full lg:w-1/2 px-4">
+                    <div className="w-full lg:w-1/2 px-5">
                       <div className="relative w-full mb-3">
                         <label
                           className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -360,7 +354,7 @@ export default function Form() {
                         </label>
                         <select
                           name="condition"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className={formInputStyles}
                           {...register("zoning", {
                             required: "Zoning is required",
                           })}
@@ -389,7 +383,8 @@ export default function Form() {
                         </label>
                         <input
                           type="text"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          placeholder="Indicate the permitted land"
+                          className={formInputStyles}
                           name="landUse"
                           {...register("landUse", {
                             required: "Permitted Land Use is required",
@@ -405,21 +400,21 @@ export default function Form() {
                   </div>
                 </div>
                 <div className={formBgColor}>
-                  <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                  <h6 className="text-blueGray-400 text-sm pl-5 pb-3 font-bold uppercase">
                     Purpose
                   </h6>
                   <div className="flex flex-wrap">
-                    <div className="w-full px-4">
+                    <div className="w-full px-5">
                       <div className="relative w-full mb-3">
                         <label
                           className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                           htmlFor="grid-password"
                         >
-                          Purpose
+                          Select the purpose of the property valuation
                         </label>
                         <select
                           name="condition"
-                          className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                          className={formInputStyles}
                           {...register("purpose", {
                             required: "purpose is required",
                           })}
@@ -440,13 +435,65 @@ export default function Form() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-wrap">
+                <div className={formBgColor}>
+                  <h6 className="text-blueGray-400 text-sm pl-5 pb-3 font-bold uppercase">
+                  Description length (words)
+                  </h6>
+                  <div className="flex flex-wrap">
+                    <div className="w-full px-4">
+                      <div className="relative w-full mb-3">
+                        <input
+                          type="number"
+                          value={250}
+                          className={formInputStyles}
+                          name="descriptionLength"
+                          {...register("descriptionLength", {
+                            required: "Specify description maximum length",
+                          })}
+                        />
+                        {errors.descriptionLength && (
+                          <p className="mt-1 text-red-500 font-medium">
+                            {errors?.descriptionLength.message}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                 {/* Checkbox for generate social media poster */}
+                 <div className="mb-5 flex items-center text-gray-500">
+                  {" "}
+                  <input
+                    type="checkbox"
+                    id="remember"
+                    name="remember"
+                    className="mr-2"
+                    onChange={handleCheckboxChange}
+                  />{" "}
+                  <label className="text-sm" htmlFor="remember">
+                    I agree to generate social media poster with AI
+                  </label>
+                </div>
+                <div className="flex flex-col lg:flex-row gap-5 justify-center">
+                <div>
                   <button
                     type="submit"
-                    className="bg-indigo-500 w-full py-2 text-white font-bold"
+                    className="w-full text-white px-20 py-3 uppercase bg-[#9f95e9] hover:bg-[#7C6EE4] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
                   >
-                    Generate
+                    Generate Property 
                   </button>
+                  </div>
+                  <div>
+                  <button
+                    type="submit"
+                    className={`w-full text-white px-20 py-3 uppercase bg-[#9f95e9] hover:bg-[#7C6EE4] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5 ${
+                      isChecked ? "" : "opacity-50 cursor-not-allowed"
+                    }`}
+                    disabled={!isChecked}
+                  >
+                    Generate Poster
+                  </button>
+                  </div>
                 </div>
               </form>
             </div>

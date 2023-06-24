@@ -286,7 +286,6 @@ const Register = () => {
                     <a className="text-indigo-300 hover:text-indigo-400">
                       Privacy Policy
                     </a>
-                    <p />{" "}
                   </label>
                 </div>{" "}
                 <div className="flex items-center justify-center mt-8">
