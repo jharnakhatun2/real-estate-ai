@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "clsx": "^1.2.1",
     "daisyui": "^2.51.5",
     "lottie-react": "^2.4.0",
