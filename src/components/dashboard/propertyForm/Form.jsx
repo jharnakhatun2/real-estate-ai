@@ -2,7 +2,7 @@ import { generatePropertyInfo } from "api/ai";
 
 import { useForm } from "react-hook-form";
 
-export default function Form() {
+export default function Form({setPropertyData}) {
   
   const {
     register,
@@ -21,6 +21,7 @@ export default function Form() {
     generatePropertyInfo(prompt)
       .then((data) => {
         console.log(data?.imageUrl, data?.createdText);
+        setPropertyData(data);
       })
       .catch((err) => {
         console.log(err?.message);
