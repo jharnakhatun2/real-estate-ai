@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div className="container mx-auto px-2 md:px-0 pt-8">
       <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2">
           <a
@@ -9,14 +9,14 @@ export default function Footer() {
             className="inline-flex items-center"
           >
             <img
-                  className={"h-12"}
-                  src={"/assets/images/logo.png"}
-                  alt="company logo"
-                />
+              className={"h-12"}
+              src={"/assets/images/logo.png"}
+              alt="company logo"
+            />
           </a>
           <div className="mt-6 lg:max-w-sm">
             <p className="text-sm text-gray-800">
-            You can generate accurate property descriptions, stunning images, and seamless browsing experience. Experience the future of real estate with ReaEstateGenious.
+              You can generate accurate property descriptions, stunning images, and seamless browsing experience. Experience the future of real estate with ReaEstateGenious.
             </p>
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Footer() {
             </a>
           </div>
           <p className="mt-4 text-sm text-gray-500">
-         Join our community and embark on your real estate journey with us and get valuable insights into the world of real estate.
+            Join our community and embark on your real estate journey with us and get valuable insights into the world of real estate.
           </p>
         </div>
         <div className="space-y-2 text-sm">
@@ -99,7 +99,7 @@ export default function Footer() {
       </div>
       <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
         <p className="text-sm text-gray-600">
-        &copy; {new Date().getFullYear()} ReaEstateGenious. All rights reserved.
+          &copy; {new Date().getFullYear()} ReaEstateGenious. All rights reserved.
         </p>
         <p className="text-sm mt-2">
           Powered by OpenAI | <a href="/privacy" className="text-[#a3a5a7] hover:text-[#7C6EE4]">Privacy Policy</a> | <a href="/terms" className="text-[#a3a5a7] hover:text-[#7C6EE4]">Terms of Service</a>
