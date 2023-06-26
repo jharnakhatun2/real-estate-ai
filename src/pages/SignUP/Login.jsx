@@ -3,7 +3,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 export default function Login() {
@@ -214,7 +214,12 @@ export default function Login() {
                     {logInError}
                   </p>
                 )}{" "}
-            
+              <p className="mt-4 italic text-gray-500 font-light text-xs">
+                Already have an account?{" "}
+                <span className="font-bold text-indigo-400 border p-1 border-gray-300 rounded text-md">
+                  <Link to="/register">Register</Link>
+                </span>
+              </p>{" "}
               {/* Form Submit  */}
               <div className="flex items-center justify-center mt-8">
                 {" "}
