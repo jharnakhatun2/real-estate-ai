@@ -32,8 +32,8 @@ export default function Form({ setPropertyData }) {
   const formInputStyle = ["block w-full rounded-l-none rtl:rounded-l rtl:rounded-r-none placeholder-gray-400/70  rounded-lg border-0  bg-white px-5 py-2.5 text-gray-700 focus:border-0 focus:outline-none focus:ring focus:ring-[#7C6EE4]"];
 
   return (
-    <div>
-      <section>
+    <>
+      <section className="-mt-2">
         <div className="w-full px-0 mx-auto">
           <div className="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg bg-blueGray-100 border-0">
             <div className="rounded-t bg-white pb-5">
@@ -451,6 +451,6 @@ export default function Form({ setPropertyData }) {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

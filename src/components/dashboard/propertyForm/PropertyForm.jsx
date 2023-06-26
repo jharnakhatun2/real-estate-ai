@@ -10,7 +10,7 @@ export default function PropertyForm() {
         <div>
           <Form setPropertyData={setPropertyData}/>
         </div>
-        <div className="bg-indigo-50 w-full lg:w-[50%] overflow-y-auto h-[100%] sticky top-32 px-4 lg:px-0">
+        <div className="bg-indigo-50 w-full lg:w-[50%] overflow-y-auto h-[100%] sticky top-36 px-4 lg:px-0">
           <DisplayBoard propertyData={propertyData}/>
         </div>
       </div>
