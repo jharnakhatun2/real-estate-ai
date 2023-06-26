@@ -1,3 +1,4 @@
+import Blog from "components/blog/Blog";
 import PropertyForm from "components/dashboard/propertyForm/PropertyForm";
 import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
 import NotFound from "pages/notFound/NotFound";
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
       {
         path: "/properties/:id",
         element: <Property />,
+      },
+      {
+        path: "/blog",
+        element: <Blog/>
       },
       {
         path: "/register",

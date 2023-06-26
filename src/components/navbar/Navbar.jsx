@@ -7,14 +7,14 @@ import { Link } from 'react-router-dom';
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Properties', href: '/properties' },
-  { name: 'Blogs', href: '/blogs' },
+  { name: 'Blogs', href: '/blog' },
   // { name: 'Dashboard', href: '/dashboard' },
 ];
 
 const navigationWithDashboard = [
   { name: 'Home', href: '/' },
   { name: 'Properties', href: '/properties' },
-  { name: 'Blogs', href: '/blogs' },
+  { name: 'Blogs', href: '/blog' },
   { name: 'Dashboard', href: '/dashboard' },
 ];
 

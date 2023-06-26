@@ -62,12 +62,12 @@ export default function Footer() {
           <div className="flex">
             <p className="mr-1 text-gray-800">Phone:</p>
             <a
-              href="tel:850-123-5021"
+              href="tel:+15551234567"
               aria-label="Our phone"
               title="Our phone"
               className="transition-colors duration-300 text-[#7C6EE4] hover:text-deep-purple-800"
             >
-              000-650-123-5021
+              +1 (555) 123-4567
             </a>
           </div>
           <div className="flex">
@@ -91,7 +91,7 @@ export default function Footer() {
               title="Our address"
               className="transition-colors duration-300 text-[#7C6EE4] hover:text-deep-purple-800"
             >
-              312 Lovely Street, NY
+              123 Main Street, New York
             </a>
           </div>
         </div>

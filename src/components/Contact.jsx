@@ -40,7 +40,8 @@ export default function Contact() {
             </span>
             <h2 className="mt-4 text-base font-medium text-gray-800 dark:text-white">Call us</h2>
             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">Mon-Fri from 8am to 5pm.</p>
-            <a href="tel:+1 (555) 123-4567." className="mt-2 text-sm text-realState dark:text-indigo-400">+1 (555) 123-4567</a>
+            <a href="tel:+15551234567" className="mt-2 text-sm text-realState dark:text-indigo-400">
+              +1 (555) 123-4567</a>
           </div>
         </div>
       </div>
