@@ -1,9 +1,7 @@
 import { generatePropertyInfo } from "api/ai";
-
 import { useForm } from "react-hook-form";
 
-export default function Form({setPropertyData}) {
-  
+export default function Form({ setPropertyData }) {
   const {
     register,
     handleSubmit,
@@ -11,7 +9,6 @@ export default function Form({setPropertyData}) {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("🚀 ~ file: PropertyForm.jsx:11 ~ onSubmit ~ data:", data);
     const arr = Object.entries(data);
     const joinedArr = arr.map((pair) => pair.join(":"));
     const finalPromptData = joinedArr.join(", ");
@@ -28,23 +25,21 @@ export default function Form({setPropertyData}) {
       });
   };
 
-  const formBgColor = ["shadow bg-indigo-50/50 p-5 mb-10"];
+  const formBgColor = ["shadow-sm bg-indigo-50 p-5 mb-6"];
   const formInputStyles = ["border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"];
   const formLabelStyle = ["py-2.5 px-3 text-gray-500 bg-indigo-50/50 rtl:rounded-r rtl:rounded-l-none rounded-l-lg"];
   const propertyDetailsInputStyle = ["flex items-center relative w-full mb-3 shadow rounded"]
   const formInputStyle = ["block w-full rounded-l-none rtl:rounded-l rtl:rounded-r-none placeholder-gray-400/70  rounded-lg border-0  bg-white px-5 py-2.5 text-gray-700 focus:border-0 focus:outline-none focus:ring focus:ring-[#7C6EE4]"];
 
-  
-
   return (
     <div>
-      <section className="">
-        <div className="w-full px-4 mx-auto">
-          <div className="relative flex flex-col min-w-0 break-words w-full mb-6  rounded-lg bg-blueGray-100 border-0">
+      <section>
+        <div className="w-full px-0 mx-auto">
+          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 rounded-lg bg-blueGray-100 border-0">
             <div className="rounded-t bg-white pb-5">
               <div className="text-center flex justify-between">
-                <h6 className="text-2xl lg:text-4xl font-semibold">
-                  Property Listing Generator :
+                <h6 className="text-2xl lg:text-3xl font-semibold">
+                  Property Valuation Generator:
                 </h6>
               </div>
             </div>
@@ -157,9 +152,9 @@ export default function Form({setPropertyData}) {
                       </div>
                     </div>
                     <div className="w-full lg:w-6/12 px-4">
-                    <div className={propertyDetailsInputStyle}>
+                      <div className={propertyDetailsInputStyle}>
                         <p className={formLabelStyle}>
-                        Bathrooms
+                          Bathrooms
                         </p>
                         <input
                           type="number"
@@ -178,30 +173,30 @@ export default function Form({setPropertyData}) {
                         )}
                       </div>
                     </div>
-                    
+
                   </div>
                   <div className="w-full px-4">
                     <div className={propertyDetailsInputStyle}>
-                        <p className={`w-4/12 ${formLabelStyle}`}>
+                      <p className={`w-4/12 ${formLabelStyle}`}>
                         Square Footage
+                      </p>
+                      <input
+                        type="number"
+                        min={0}
+                        placeholder="Total Square Footage"
+                        className={formInputStyle}
+                        name="squareFootage"
+                        {...register("squareFootage", {
+                          required: "Square Footage is required",
+                        })}
+                      />
+                      {errors.footage && (
+                        <p className="mt-1 text-red-500 font-medium">
+                          {errors?.footage.message}
                         </p>
-                        <input
-                          type="number"
-                          min={0}
-                          placeholder="Total Square Footage"
-                          className={formInputStyle}
-                          name="squareFootage"
-                          {...register("squareFootage", {
-                            required: "Square Footage is required",
-                          })}
-                        />
-                        {errors.footage && (
-                          <p className="mt-1 text-red-500 font-medium">
-                            {errors?.footage.message}
-                          </p>
-                        )}
-                      </div>
+                      )}
                     </div>
+                  </div>
                 </div>
                 <div className={formBgColor}>
                   <h6 className="text-blueGray-400 text-sm pl-5 pb-3 font-bold uppercase">
@@ -223,10 +218,8 @@ export default function Form({setPropertyData}) {
                             required: "Condition is required",
                           })}
                         >
-                          <option defaultValue hidden>
-                            Select
-                          </option>
-                          <option  value="Excellent">Excellent</option>
+                          <option defaultValue hidden>Select</option>
+                          <option value="Excellent">Excellent</option>
                           <option value="Good">Good</option>
                           <option value="Fair">Fair</option>
                           <option value="Poor">Poor</option>
@@ -253,9 +246,7 @@ export default function Form({setPropertyData}) {
                             required: "Renovation is required",
                           })}
                         >
-                          <option defaultValue hidden>
-                            Select
-                          </option>
+                          <option defaultValue hidden>Select</option>
                           <option value="Yes">Yes</option>
                           <option value="No">No</option>
                         </select>
@@ -435,16 +426,16 @@ export default function Form({setPropertyData}) {
                   </div>
                 </div>
                 <div className="flex flex-col lg:flex-row gap-5 justify-center">
-                <div>
-                  <button
-                    type="submit"
-                    className="w-full text-white px-20 py-3 uppercase bg-[#9f95e9] hover:bg-[#7C6EE4] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
-                  >
-                    Generate Property 
-                  </button>
+                  <div>
+                    <button
+                      type="submit"
+                      className="w-full text-white px-20 py-3 uppercase bg-indigo-500 hover:bg-indigo-400 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                    >
+                      Generate Property
+                    </button>
                   </div>
                   <div>
-                  {/* <button
+                    {/* <button
                     type="submit"
                     className={`w-full text-white px-20 py-3 uppercase bg-[#9f95e9] hover:bg-[#7C6EE4] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5 ${
                       isChecked ? "" : "opacity-50 cursor-not-allowed"

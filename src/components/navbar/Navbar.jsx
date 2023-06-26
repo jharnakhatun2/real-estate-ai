@@ -14,7 +14,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed w-full bg-white shadow-sm">
+    <header className="fixed z-10 w-full bg-white shadow-sm">
       <section className="container mx-auto px-2 md:px-0">
         <nav className="flex items-center justify-between py-6" aria-label="Global">
           <div className="flex lg:flex-1">
