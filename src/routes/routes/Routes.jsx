@@ -8,6 +8,7 @@ import Login from "pages/signUP/Login";
 import Properties from "pages/properties/Properties";
 import Property from "pages/properties/Property";
 import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
+import PrivateRoute from "routes/privateRoute/PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -40,12 +41,12 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout/>,
+    element: <PrivateRoute><DashboardLayout/></PrivateRoute>,
     errorElement: <NotFound />,
     children: [
       {
         path: "/dashboard",
-        element: <PropertyForm />,
+        element: <PrivateRoute><PropertyForm /></PrivateRoute>,
       }
     ],
   },
