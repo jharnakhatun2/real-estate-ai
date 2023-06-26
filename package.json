@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "firebase": "^9.22.2",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
     "clsx": "^1.2.1",
@@ -20,6 +21,7 @@
     "react-hook-form": "^7.45.0",
     "react-icons": "^4.9.0",
     "react-quill": "^2.0.0",
+    "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.13.0",
     "tailwind-merge": "^1.13.2",
     "tailwindcss-animated": "^1.0.1",
@@ -32,7 +34,7 @@
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.38.0",
+    "eslint": "^8.43.0",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",

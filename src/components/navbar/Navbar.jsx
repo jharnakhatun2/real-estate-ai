@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 
 const navigation = [
   { name: 'Home', href: '/' },
-  { name: 'Properties', href: '/' },
-  { name: 'Blogs', href: '/' },
+  { name: 'Properties', href: '/properties' },
+  { name: 'Blogs', href: '/blogs' },
+  { name: 'Dashboard', href: '/dashboard' },
 ];
 
 export default function Navbar() {
