@@ -1,6 +1,9 @@
 import buildingImage from "assets/bg/buildings.jpg";
+import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
     <section className="container mx-auto px-2 md:px-0 pt-12">
       <div className="flex flex-wrap flex-col-reverse md:flex-row">
@@ -8,7 +11,7 @@ export default function Hero() {
           <div className="container mx-auto h-full">
             <nav className="flex justify-between items-center">
               <div>
-                <img src="https://image.flaticon.com/icons/svg/497/497348.svg" alt="" className="w-8" />
+                <img src="https://image.flaticon.com/icons/svg/497/497348.svg" alt="hero__image" className="w-8" />
               </div>
             </nav>
             <header className="container lg:flex mt-10 items-center h-full lg:mt-0">
@@ -19,7 +22,7 @@ export default function Hero() {
                 <h1 className="text-4xl lg:text-6xl font-bold">Unlock the Future of <span className="text-indigo-500 block">Real Estate</span> with AI</h1>
                 <div className="w-20 h-2 bg-indigo-500 my-4" />
                 <p className="text-xl mb-10">Welcome to Real Estate Genius. Accurate real estate valuation at your fingertips. Harness the power of AI for instant property assessments and informed decisions. Discover the future of real estate valuation with our advanced AI technology.</p>
-                <button className="bg-indigo-500 text-white w-full md:w-auto text-xl font-semibold px-8 py-2 rounded-sm shadow">
+                <button onClick={()=> navigate("/dashboard")} className="bg-indigo-500 text-white w-full md:w-auto text-xl font-semibold px-8 py-2 rounded-sm shadow">
                   Create Listing
                 </button>
               </div>

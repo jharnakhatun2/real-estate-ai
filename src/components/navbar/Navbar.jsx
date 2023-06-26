@@ -8,6 +8,13 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Properties', href: '/properties' },
   { name: 'Blogs', href: '/blogs' },
+  // { name: 'Dashboard', href: '/dashboard' },
+];
+
+const navigationWithDashboard = [
+  { name: 'Home', href: '/' },
+  { name: 'Properties', href: '/properties' },
+  { name: 'Blogs', href: '/blogs' },
   { name: 'Dashboard', href: '/dashboard' },
 ];
 
@@ -37,11 +44,20 @@ export default function Navbar() {
             </button>
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
-            {navigation.map((item) => (
-              <Link key={item.name} to={item.href} className="text-sm font-semibold leading-6 text-gray-900">
-                {item.name}
-              </Link>
-            ))}
+            {
+              user?.uid ?
+                navigationWithDashboard.map((item) => (
+                  <Link key={item.name} to={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                    {item.name}
+                  </Link>
+                ))
+                :
+                navigation.map((item) => (
+                  <Link key={item.name} to={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                    {item.name}
+                  </Link>
+                ))                
+            }
           </div>
           {
             user?.uid ?
@@ -52,7 +68,7 @@ export default function Navbar() {
                   </button>
                 </div>
               )
-                :
+              :
               (
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                   <Link to="/login" className="text-sm font-semibold leading-6 text-gray-900">
@@ -83,24 +99,39 @@ export default function Navbar() {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      to={item.href}
-                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
+                  {
+                    user?.uid ?
+                      navigationWithDashboard.map((item) => (
+                        <Link key={item.name} to={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                          {item.name}
+                        </Link>
+                      ))
+                      :
+                      navigation.map((item) => (
+                        <Link key={item.name} to={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                          {item.name}
+                        </Link>
+                      ))
+                  }
                 </div>
-                <div className="py-6">
-                  <Link
-                    to="/login"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    Log in
-                  </Link>
-                </div>
+                {
+                  user?.uid ?
+                    (
+                      <div className="py-6">
+                        <button onClick={logOut} type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                          Logout <span aria-hidden="true">&rarr;</span>
+                        </button>
+                      </div>
+                    )
+                    :
+                    (
+                      <div className="py-6">
+                        <Link to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                          Log in <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                      </div>
+                    )
+                }
               </div>
             </div>
           </Dialog.Panel>
