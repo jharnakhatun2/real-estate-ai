@@ -3,7 +3,7 @@ import contact2 from "../../assets/Animation/contact.json";
 
 const Contact = () => {
   return (
-    <div className="mb-20 lg:mb-5">
+    <div className="mt-[22rem] md:mt-8 mb-20 lg:mb-5">
       <div>
         <div className="flex justify-center items-center w-screen  h-screen rounded-none bg-white mb-60 lg:mb-10">
           <div className="container mx-auto my-4 px-4 ">

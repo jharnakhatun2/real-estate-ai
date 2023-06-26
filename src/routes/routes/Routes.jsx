@@ -3,11 +3,11 @@ import NotFound from "pages/notFound/NotFound";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
 import Home from "../../pages/home/Home";
-import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
 import Register from "pages/signUP/Register";
 import Login from "pages/signUP/Login";
 import Properties from "pages/properties/Properties";
 import Property from "pages/properties/Property";
+import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
 
 
 export const router = createBrowserRouter([
@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: <DashboardLayout/>,
     errorElement: <NotFound />,
     children: [
       {

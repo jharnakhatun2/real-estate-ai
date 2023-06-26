@@ -2,10 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* hero section */
 .hero-image {
-  background-image: url("../src/assets/bg/black-white.jpg");
-  background-size: cover;
+  /* background-image: url("../src/assets/bg/black-white.jpg"); */
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.438), rgba(255, 255, 255, 0.863), rgb(255, 255, 255)), url("../src/assets/bg/black-white.jpg");
+  background-size: 100%;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 }
