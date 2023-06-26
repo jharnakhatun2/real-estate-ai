@@ -1,4 +1,4 @@
-export default function DisplayBoard({propertyDatan}) {
+export default function DisplayBoard({propertyData}) {
     console.log(propertyData);
     const {createdText,imageUrl} = propertyData || {};
   return (
