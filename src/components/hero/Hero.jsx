@@ -9,11 +9,6 @@ export default function Hero() {
       <div className="flex flex-wrap flex-col-reverse md:flex-row">
         <div className="w-full sm:w-8/12 mb-10">
           <div className="container mx-auto h-full">
-            <nav className="flex justify-between items-center">
-              <div>
-                <img src="https://image.flaticon.com/icons/svg/497/497348.svg" alt="hero__image" className="w-8" />
-              </div>
-            </nav>
             <header className="container lg:flex mt-10 items-center h-full lg:mt-0">
               <div className="w-full">
                 <div className="text-2xl font-bold">

@@ -218,7 +218,7 @@ export default function Login() {
               {/* Form Submit  */}
               <div className="flex items-center justify-center mt-8">
                 {" "}
-                <button type="submit" className="text-white py-2 px-4 uppercase rounded bg-[#9f95e9] hover:bg-[#7C6EE4] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <button type="submit" className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                   {" "}
                   Log in{" "}
                 </button>{" "}
