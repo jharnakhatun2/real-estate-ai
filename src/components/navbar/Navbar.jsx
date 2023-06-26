@@ -1,6 +1,7 @@
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useState } from 'react';
+import { AuthContext } from 'context/authProvider/AuthProvider';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const navigation = [
@@ -12,6 +13,7 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
 
   return (
     <header className="fixed z-10 w-full bg-white shadow-sm">
@@ -41,11 +43,24 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link to="/" className="text-sm font-semibold leading-6 text-gray-900">
-              Log in <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </div>
+          {
+            user?.uid ?
+              (
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                  <button onClick={logOut} type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                    Logout <span aria-hidden="true">&rarr;</span>
+                  </button>
+                </div>
+              )
+                :
+              (
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                  <Link to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                    Log in <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+              )
+          }
         </nav>
         <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
           <div className="fixed inset-0 z-50" />
@@ -80,7 +95,7 @@ export default function Navbar() {
                 </div>
                 <div className="py-6">
                   <Link
-                    to="/"
+                    to="/login"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
                     Log in

@@ -1,13 +1,14 @@
 import PropertyForm from "components/dashboard/propertyForm/PropertyForm";
+import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
 import NotFound from "pages/notFound/NotFound";
-import { createBrowserRouter } from "react-router-dom";
-import Main from "../../layout/Main";
-import Home from "../../pages/home/Home";
-import Register from "pages/signUP/Register";
-import Login from "pages/signUP/Login";
 import Properties from "pages/properties/Properties";
 import Property from "pages/properties/Property";
-import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
+import Login from "pages/signUP/Login";
+import Register from "pages/signUP/Register";
+import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "routes/privateRoute/PrivateRoute";
+import Main from "../../layout/Main";
+import Home from "../../pages/home/Home";
 
 
 export const router = createBrowserRouter([
@@ -22,30 +23,34 @@ export const router = createBrowserRouter([
       },
       {
         path: "/properties",
-        element: <Properties/>,
+        element: <Properties />,
       },
       {
         path: "/properties/:id",
-        element: <Property/>,
+        element: <Property />,
       },
       {
         path: "/register",
-        element: <Register/>,
+        element: <Register />,
       },
       {
-        path: "/signIn",
-        element: <Login/>,
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout/>,
+    element: <DashboardLayout />,
     errorElement: <NotFound />,
     children: [
       {
         path: "/dashboard",
-        element: <PropertyForm />,
+        element: (
+          <PrivateRoute>
+            <PropertyForm />
+          </PrivateRoute>
+        ),
       }
     ],
   },

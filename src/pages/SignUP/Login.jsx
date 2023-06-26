@@ -3,7 +3,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 export default function Login() {
@@ -14,6 +14,8 @@ export default function Login() {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
 
   const handleLogin = (data) => {
     data.preventDefault();
@@ -29,7 +31,7 @@ export default function Login() {
           backgroundColor: '#9f95e9'
         },
       });
-      navigate('/dashboard');
+      navigate(from, { replace: true });
       reset();
     })
     .catch(err => {
@@ -39,7 +41,7 @@ export default function Login() {
     });
   }
 
-  // Signup with Google
+  // register with Google
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
       .then((result) => {
@@ -51,12 +53,12 @@ export default function Login() {
             backgroundColor: '#9f95e9'
           },
         });
-        navigate("/dashboard");
+        navigate(from, { replace: true });
       })
       .catch((err) => console.log(err));
   };
 
-  // Signup with Github
+  // register with Github
   const handleGithubSignIn = () => {
     providerLogin(githubProvider)
       .then((result) => {
@@ -68,7 +70,7 @@ export default function Login() {
             backgroundColor: '#9f95e9'
           },
         });
-        navigate("/dashboard");
+        navigate(from, { replace: true });
       })
       .catch((err) => console.log(err));
   };
