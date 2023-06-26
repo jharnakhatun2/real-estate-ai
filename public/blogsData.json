@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "1",
+    "title": "All the feature you want to know about Townhouse",
+    "author": "Steve Smith",
+    "image": "https://www.luxxu.net/blog/wp-content/uploads/2017/02/20-Incredible-Modern-Houses-Around-the-United-States-5.jpg",
+    "content": "A townhouse is a type of residential dwelling that shares walls with adjacent units, forming a row or a cluster of houses. Townhouses are often characterized by their vertical orientation, typically having multiple floors and a compact footprint. Here is a general description of a townhouse. A townhouse usually has a charming and aesthetically pleasing exterior design. It can feature various architectural styles such as Victorian, Georgian, Colonial, or contemporary designs. The exterior facade may be made of brick, stucco, siding, or a combination of materials. Townhouses often have a front entrance facing the street, and some may have a small front yard or a patio area. Townhouses are designed to maximize living space in a relatively narrow footprint. They typically have two or more floors, connected by staircases. The ground floor usually consists of common areas such as a living room, dining room, and kitchen. Some townhouses may also have a small entry foyer or a hallway leading to the main living area. The upper floors usually house the bedrooms, bathrooms, and sometimes additional living spaces like a loft or a study.",
+    "date": "2023-04-18"
+  },
+  {
+    "_id": "2",
+    "title": "All the feature you want to know about Villa",
+    "author": "Charls Jonson",
+    "image": "https://imageio.forbes.com/specials-images/imageserve/1164254755/homes-for-sale--housing--home-prices--housing-market--coronavirus/960x0.jpg?format=jpg&width=960",
+    "content": "Villa USA is a luxurious residential property located in the United States. It is a spacious and elegant dwelling designed to provide a comfortable and exclusive living experience. The villa typically features a combination of contemporary and traditional architectural styles, showcasing high-quality craftsmanship and attention to detail. From the outside, Villa USA may boast an impressive facade with a grand entrance, manicured gardens, and well-maintained landscaping. It may have a large driveway leading to the main entrance, which is often adorned with exquisite doors and windows.",
+    "date": "2023-04-20"
+  },
+  {
+    "_id": "3",
+    "title": "All the feature you want to know about residential house",
+    "author": "Ana Maria",
+    "image": "https://cdn.nar.realtor/sites/default/files/illuminated-blue-shingled-house-GettyImages-565978271-1200w-628h.jpg",
+    "content": "A typical residential house in the USA is a single-family dwelling designed to provide shelter and comfort for a family or a small group of individuals. It is typically situated within a neighborhood or a suburban area. The house usually features a variety of architectural styles, depending on the region and the preferences of the homeowner. Common architectural styles include Colonial, Ranch, Cape Cod, Victorian, Craftsman, and Contemporary, among others. The exterior is typically constructed with materials such as bricks, wood, vinyl siding, or stucco. The house may have a front yard, backyard, and a driveway for parking vehicles.",
+    "date": "2023-04-17"
+  },
+
+  {
+    "_id": "4",
+    "title": "How Artificial Intelligence is Revolutionizing Real Estate",
+    "author": "John Smith",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtIxyazV2BwAQFhr3OI8OOHKHCcT0TgmzloUQFoVzl_gphm_SY70dUIvN_neCxbJ-odN0&usqp=CAU",
+    "date": "2023-03-10",
+    "content": "Artificial Intelligence (AI) has made significant strides in revolutionizing the real estate industry. From automated property valuation models to virtual reality property tours, AI has transformed the way we buy and sell homes. This blog post explores some of the key advancements and benefits of AI in real estate."
+  },
+  {
+    "_id": "5",
+    "title": "Predictive Analytics: Unlocking Real Estate Market Insights with AI",
+    "author": "Emily Davis",
+    "image": "https://media.istockphoto.com/id/1163094947/photo/your-new-house-real-estate-agent-holding-house-key-to-his-client-after-signing-contract.jpg?s=612x612&w=0&k=20&c=jbm-lXlj06WsFVFgHZyJ2CkeMrIsLYM-Tidncny1oDQ=",
+    "date": "2023-04-05",
+    "content": "Predictive analytics powered by AI algorithms are enabling real estate professionals to gain valuable insights into market trends and forecast property values. In this article, we delve into how AI-driven predictive analytics can help investors, agents, and homeowners make informed decisions based on data-driven forecasts."
+  },
+  {
+    "_id": "6",
+    "title": "Enhancing Property Search with AI-Driven Recommendation Systems",
+    "author": "Jessica Thompson",
+    "image": "https://thumbs.dreamstime.com/b/house-value-model-home-calculator-magnifying-glass-138381163.jpg",
+    "date": "2023-04-20",
+    "content": "AI recommendation systems are revolutionizing the property search experience. These systems leverage machine learning algorithms to analyze user preferences and historical data to suggest properties that match buyers' criteria. Learn more about how AI-driven recommendation systems are transforming the way we find our dream homes."
+  },
+  {
+    "_id": "7",
+    "title": "The Rise of AI-Powered Chatbots in Real Estate",
+    "author": "Michael Johnson",
+    "image": "https://st2.depositphotos.com/1194063/6307/i/950/depositphotos_63079189-stock-photo-discussion-with-a-real-estate.jpg",
+    "date": "2023-05-02",
+    "content": "AI-powered chatbots have become valuable assets in the real estate industry. These virtual assistants can provide instant responses to inquiries, schedule property showings, and even assist with mortgage pre-approval processes. Discover how chatbots are improving customer service and streamlining operations in the real estate sector."
+  },
+  {
+    "_id": "8",
+    "title": "Smart Homes: The Future of Real Estate",
+    "author": "Sophia Roberts",
+    "image": "https://st2.depositphotos.com/1370441/7847/i/600/depositphotos_78479540-stock-photo-luxury-home-with-pool-at.jpg",
+    "date": "2023-05-18",
+    "content": "AI and the Internet of Things (IoT) have paved the way for smart homes, offering homeowners convenience, energy efficiency, and enhanced security. This blog post explores the growing trend of smart homes, the integration of AI technologies, and the impact they have on the real estate market."
+  }
+]
