@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
     <section className="bg-white dark:bg-gray-900">
-      <div className="container px-2 md:px-0 py-12 mx-auto">
+      <div className="container px-2 md:px-4 xl:px-0 py-12 mx-auto">
         <div className="text-center ">
           <p className="font-medium text-realState dark:text-indigo-400">Contact us</p>
           <h1 className="mt-2 text-2xl font-semibold text-gray-800 md:text-3xl dark:text-white">We’d love to hear from you</h1>

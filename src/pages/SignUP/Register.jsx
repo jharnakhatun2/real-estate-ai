@@ -48,8 +48,6 @@ const Register = () => {
     });
   };
 
-  
-
   // Privacy agree checkbox
    const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
@@ -268,7 +266,7 @@ const Register = () => {
                 <p className="mt-4 italic text-gray-500 font-light text-xs">
                   Already have an account?{" "}
                   <span className="font-bold text-indigo-400 border p-1 border-gray-300 rounded text-md">
-                    <Link to="/signIn">Sign In</Link>
+                    <Link to="/login">Login</Link>
                   </span>
                 </p>{" "}
                 {/* Checkbox for agree policy */}

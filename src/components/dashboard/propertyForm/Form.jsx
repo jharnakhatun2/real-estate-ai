@@ -1,7 +1,7 @@
 import { generatePropertyInfo } from "api/ai";
 import { useForm } from "react-hook-form";
 
-export default function Form({ setPropertyData }) {
+export default function Form({ setPropertyData, setLoading }) {
   const {
     register,
     handleSubmit,
@@ -11,17 +11,20 @@ export default function Form({ setPropertyData }) {
   const onSubmit = (data) => {
     const arr = Object.entries(data);
     const joinedArr = arr.map((pair) => pair.join(":"));
-    const finalPromptData = joinedArr.join(", ");
+    const finalPromptData = joinedArr.join("\n");
     console.log(finalPromptData)
     const prompt = { prompt: finalPromptData, size: "medium" };
+    setLoading(true);
     // send request to generate info
     generatePropertyInfo(prompt)
       .then((data) => {
         console.log(data?.imageUrl, data?.createdText);
         setPropertyData(data);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err?.message);
+        setLoading(false);
       });
   };
 
