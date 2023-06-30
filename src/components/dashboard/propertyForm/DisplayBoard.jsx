@@ -25,7 +25,7 @@ export default function DisplayBoard({ propertyData, loading }) {
     savePropertyToDb(data)
       .then((data) => {
         console.log(data);
-        if (data.acknowledged) {
+        if (data?.data.acknowledged) {
           toast.success("Data saved Successfully");
         }
       })
