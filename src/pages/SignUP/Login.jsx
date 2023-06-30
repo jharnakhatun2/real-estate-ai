@@ -3,7 +3,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 export default function Login() {
@@ -14,8 +14,8 @@ export default function Login() {
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location?.state?.from?.pathname || "/";
+  // const location = useLocation();
+  // const from = location?.state?.from?.pathname || "/";
 
   const handleLogin = (data) => {
     data.preventDefault();
@@ -28,10 +28,11 @@ export default function Login() {
       toast('Log In Successful 👍', {
         style: {
           border: '1px solid #ffffff',
-          backgroundColor: '#9f95e9'
+          backgroundColor: '#9f95e9',
+          color: "#ffffff",
         },
       });
-      navigate(from, { replace: true });
+      navigate("/dashboard");
       reset();
     })
     .catch(err => {
@@ -53,7 +54,7 @@ export default function Login() {
             backgroundColor: '#9f95e9'
           },
         });
-        navigate(from, { replace: true });
+        navigate("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -70,7 +71,7 @@ export default function Login() {
             backgroundColor: '#9f95e9'
           },
         });
-        navigate(from, { replace: true });
+        navigate("/dashboard");
       })
       .catch((err) => console.log(err));
   };

@@ -64,9 +64,9 @@ export default function Form({ setPropertyData, setLoading }) {
                             required: "Street Address is required",
                           })}
                         />
-                        {errors.street && (
-                          <p className="mt-1 text-red-500 font-medium">
-                            {errors?.street.message}
+                        {errors.streetAddress && (
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
+                            {errors?.streetAddress.message}
                           </p>
                         )}
                       </div>
@@ -83,7 +83,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         />
                         {errors.city && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.city.message}
                           </p>
                         )}
@@ -101,7 +101,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         />
                         {errors.state && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.state.message}
                           </p>
                         )}
@@ -119,7 +119,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         />
                         {errors.zipcode && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.zipcode.message}
                           </p>
                         )}
@@ -148,7 +148,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         />
                         {errors.bedrooms && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.bedrooms.message}
                           </p>
                         )}
@@ -170,7 +170,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         />
                         {errors.bathrooms && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.bathrooms.message}
                           </p>
                         )}
@@ -194,7 +194,7 @@ export default function Form({ setPropertyData, setLoading }) {
                         })}
                       />
                       {errors.footage && (
-                        <p className="mt-1 text-red-500 font-medium">
+                        <p className="mt-1 text-red-500 text-sm font-semibold">
                           {errors?.footage.message}
                         </p>
                       )}
@@ -228,7 +228,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           <option value="Poor">Poor</option>
                         </select>
                         {errors.condition && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.condition.message}
                           </p>
                         )}
@@ -254,7 +254,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           <option value="No">No</option>
                         </select>
                         {errors.renovation && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.renovation.message}
                           </p>
                         )}
@@ -280,7 +280,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         />
                         {errors.firstAddress && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.firstAddress.message}
                           </p>
                         )}
@@ -299,7 +299,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         />
                         {errors.secondAddress && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.secondAddress.message}
                           </p>
                         )}
@@ -324,7 +324,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         ></textarea>
                         {errors.features && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="text-red-500 text-sm font-semibold">
                             {errors?.features.message}
                           </p>
                         )}
@@ -360,7 +360,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           <option value="Mixed-Use">Mixed-Use</option>
                         </select>
                         {errors.condition && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.condition.message}
                           </p>
                         )}
@@ -384,7 +384,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           })}
                         />
                         {errors.landUse && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.landUse.message}
                           </p>
                         )}
@@ -420,7 +420,7 @@ export default function Form({ setPropertyData, setLoading }) {
                           <option value="Insurance">Insurance</option>
                         </select>
                         {errors.purpose && (
-                          <p className="mt-1 text-red-500 font-medium">
+                          <p className="mt-1 text-red-500 text-sm font-semibold">
                             {errors?.purpose.message}
                           </p>
                         )}
@@ -432,7 +432,7 @@ export default function Form({ setPropertyData, setLoading }) {
                   <div>
                     <button
                       type="submit"
-                      className="w-full text-white px-20 py-3 uppercase bg-indigo-500 hover:bg-indigo-400 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                      className="w-full text-white px-20 py-3 uppercase bg-indigo-500 hover:bg-indigo-400 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5 rounded"
                     >
                       Generate Property
                     </button>
