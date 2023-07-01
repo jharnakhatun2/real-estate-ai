@@ -1,6 +1,6 @@
-export default function DisplayBoard({propertyData}) {
-    console.log(propertyData);
-    const {createdText,imageUrl} = propertyData || {};
+export default function DisplayBoard({ propertyData }) {
+  const { createdText, imageUrl } = propertyData || {};
+
   return (
     <div className="p-5">
       <div>

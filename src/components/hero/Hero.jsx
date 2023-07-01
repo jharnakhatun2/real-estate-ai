@@ -1,41 +1,30 @@
+import buildingImage from "assets/bg/buildings.jpg";
+import { useNavigate } from "react-router-dom";
+
 export default function Hero() {
+  const navigate = useNavigate();
+
   return (
-    <section className="hero-image flex items-center">
-      <div className="container mx-auto px-2 md:px-0 space-y-3 pt-20 md:pt-48">
-        {/* hero text */}
-        <div className="mt-20">
-          <h1 className="text-4xl font-medium text-white">Discover <span className="block"><span className="block md:inline">a place</span> you will love to live</span></h1>
-        </div>
-        <div>
-          <p className="text-black md:text-white">We have listed over 100+ property in our database.</p>
-        </div>
-        {/* search inputs */}
-        <div className="flex flex-col md:flex-row gap-4">
-          <input type="text" className="w-full md:w-2/4 border md:border-none" placeholder="Enter a location to search here" />
-          <button type="button" className="bg-indigo-500 py-2 px-14 text-white font-semibold" >Search</button>
-        </div>
-        {/* looking for */}
-        <div className="w-full md:w-5/6">
-          <h2 className="text-white mb-4">What are you looking for?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-            {/* housing */}
-            <div className="bg-white p-10 rounded-sm shadow-lg">
-              <p>Housing</p>
-            </div>
-            {/* Booking */}
-            <div className="bg-white p-10 rounded-sm shadow-lg">
-              <p>Booking</p>
-            </div>
-            {/* renovation */}
-            <div className="bg-white p-10 rounded-sm shadow-lg">
-              <p>Renovation</p>
-            </div>
-            {/* House plan */}
-            <div className="bg-white p-10 rounded-sm shadow-lg">
-              <p>House Plan</p>
-            </div>
+    <section className="container mx-auto px-2 md:px-0 pt-12">
+      <div className="flex flex-wrap flex-col-reverse md:flex-row">
+        <div className="w-full sm:w-8/12 mb-10">
+          <div className="container mx-auto h-full">
+            <header className="container lg:flex mt-10 items-center h-full lg:mt-0">
+              <div className="w-full">
+                <div className="text-2xl font-bold">
+                  AI In Real Estate<span className="text-indigo-500">.</span>
+                </div>
+                <h1 className="text-4xl lg:text-6xl font-bold">Unlock the Future of <span className="text-indigo-500 block">Real Estate</span> with AI</h1>
+                <div className="w-20 h-2 bg-indigo-500 my-4" />
+                <p className="text-xl mb-10">Welcome to Real Estate Genius. Accurate real estate valuation at your fingertips. Harness the power of AI for instant property assessments and informed decisions. Discover the future of real estate valuation with our advanced AI technology.</p>
+                <button onClick={()=> navigate("/dashboard")} className="bg-indigo-500 text-white w-full md:w-auto text-xl font-semibold px-8 py-2 rounded-sm shadow">
+                  Create Listing
+                </button>
+              </div>
+            </header>
           </div>
         </div>
+        <img src={buildingImage} alt="Building" className="w-full h-48 mt-12 md:-mt-8 object-cover sm:h-screen sm:w-4/12" />
       </div>
     </section>
   )

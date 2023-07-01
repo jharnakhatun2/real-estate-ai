@@ -12,6 +12,7 @@
   "dependencies": {
     "firebase": "^9.22.2",
     "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
     "clsx": "^1.2.1",
     "daisyui": "^2.51.5",
     "lottie-react": "^2.4.0",

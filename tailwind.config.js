@@ -7,7 +7,15 @@ export default {
       fontFamily: {
         sen: ["Sen", "sans-serif"],
       },
+      colors: {
+        realState: "#7c6ee4",
+      }
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("daisyui"), require('tailwindcss-animated')],
+  plugins: [
+    require("@tailwindcss/forms"),
+    // require("tw-elements/dist/plugin.cjs"),
+    require("daisyui"),
+    require('tailwindcss-animated')
+  ],
 };
