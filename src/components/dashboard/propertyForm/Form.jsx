@@ -18,7 +18,7 @@ export default function Form({ setPropertyData, setLoading }) {
     // send request to generate info
     generatePropertyInfo(prompt)
       .then((data) => {
-        console.log(data?.imageUrl, data?.createdText);
+        console.log(data?.imageUrl, data?.createdText, data?.valuationCost);
         setPropertyData(data);
         setLoading(false);
       })

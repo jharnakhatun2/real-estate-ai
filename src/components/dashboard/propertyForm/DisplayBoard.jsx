@@ -1,14 +1,16 @@
+import { PDFDownloadLink } from '@react-pdf/renderer';
 import { savePropertyToDb } from 'api/ai';
 import imageLoading from 'assets/Animation/image-3-loading.json';
 import { AuthContext } from 'context/authProvider/AuthProvider';
 import Lottie from "lottie-react";
 import { useContext } from 'react';
 import { toast } from 'react-hot-toast';
+import PDFFile from 'ui/pdf/PDF';
 
 export default function DisplayBoard({ propertyData, loading }) {
-  const { createdText, imageUrl } = propertyData || {};
+  const { createdText, imageUrl, valuationCost } = propertyData || {};
   const { user } = useContext(AuthContext);
-  // splited texxt
+  // splited text
   // const splitedText = createdText?.split(". ");
 
   const handleSaveProperty = () => {
@@ -19,7 +21,7 @@ export default function DisplayBoard({ propertyData, loading }) {
       propertyImage: imageUrl,
       description: createdText,
       createdAt: new Date().toJSON(),
-      valuationCost: "💰1,500,000",
+      valuationCost,
     };
     // save to db
     savePropertyToDb(data)
@@ -75,8 +77,12 @@ export default function DisplayBoard({ propertyData, loading }) {
                 </div>
               )
               :
-              <p className="mt-4 text-justify">{createdText}</p>
-
+              (
+                <div className="mt-4">
+                  <p className="text-lg font-bold">{valuationCost}</p>
+                  <p className="text-justify">{createdText}</p>
+                </div>
+              )
           }
           {/* {
             splitedText?.map((text, i) => (
@@ -96,6 +102,14 @@ export default function DisplayBoard({ propertyData, loading }) {
               </div>
             )
           }
+        </div>
+        {/* generate pdf */}
+        <div>
+          <PDFDownloadLink document={<PDFFile image={imageUrl} text={createdText} />} fileName="example.pdf">
+            {({ loading }) =>
+              loading ? <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2 hover:bg-indigo-100">Loading document...</button> : <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2 hover:bg-indigo-100">Download now</button>
+            }
+          </PDFDownloadLink>
         </div>
       </div>
     </div>

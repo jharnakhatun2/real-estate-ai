@@ -12,6 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
+    "@react-pdf/renderer": "^3.1.12",
     "clsx": "^1.2.1",
     "daisyui": "^2.51.5",
     "firebase": "^9.22.2",
