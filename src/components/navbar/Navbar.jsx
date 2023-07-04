@@ -1,194 +1,142 @@
-import { Popover, Transition } from "@headlessui/react";
-import { Fragment, useContext, useEffect, useState } from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { AuthContext } from "context/authProvider/AuthProvider";
-import { Link } from "react-router-dom";
-import Button from "components/ui/Button";
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { AuthContext } from 'context/authProvider/AuthProvider';
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const routes = [
-  { label: `Home`, href: "/" },
-  { label: `Properties`, href: "/properties" },
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'Properties', href: '/properties' },
+  { name: 'Blogs', href: '/blog' },
+  // { name: 'Dashboard', href: '/dashboard' },
+];
+
+const navigationWithDashboard = [
+  { name: 'Home', href: '/' },
+  { name: 'Properties', href: '/properties' },
+  { name: 'Blogs', href: '/blog' },
+  { name: 'Dashboard', href: '/dashboard' },
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
 
-  // logout menu item
-  const handleLogout = () => {
-    logOut()
-      .then(() => {})
-      .catch((err) => console.log(err));
-  };
-  // menu fixed when scrolling
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop;
-      setIsScrolled(scrollTop > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  // menu style variable
-  const menuStyle = [
-    "mx-4 whitespace-nowrap text-[#373636] text-[17px] hover:text-[#7C6EE4]",
-  ];
-  // menu style variable
-  const mobileMenuStyle = [
-    "mb-4 uppercase text-[#555554] hover:text-[#7C6EE4]",
-  ];
-
   return (
-    <nav
-      className={`${
-        isScrolled
-          ? "bg-[#f2eeffad] bg-opacity-30 animate-fade-down shadow-lg border-b border-gray-200 backdrop-filter backdrop-blur-lg sticky top-0 "
-          : "bg-white w-full"
-      } px-0 md:px-5 py-2 lg:py-4 z-50`}
-    >
-      <div className={"container mx-auto"}>
-        <div className={"hidden xl:block"}>
-          <div className={"flex items-center justify-between"}>
-            <div>
-              <a href={"/"}>
-                <img
-                  className={"h-12"}
-                  src={"/assets/images/logo.png"}
-                  alt={"Predictiville Logo"}
-                />
-              </a>
-            </div>
-
-            <div
-              className={
-                "flex flex-1 justify-end items-center text-xl  text-darkestGray"
-              }
+    <header className="fixed z-10 w-full bg-white shadow-sm">
+      <section className="container mx-auto px-2 md:px-0">
+        <nav className="flex items-center justify-between py-6" aria-label="Global">
+          <div className="flex lg:flex-1">
+            <Link to="/" className="-m-1.5 p-1.5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
+              </svg>
+            </Link>
+          </div>
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              onClick={() => setMobileMenuOpen(true)}
             >
-              <ul className={"flex"}>
-                {routes.map((route) => (
-                  <li key={route.label} className={menuStyle}>
-                    <a href={route.href}>{route.label}</a>
-                  </li>
-                ))}
-                {user?.uid ? (
-                  <>
-                    <li className={menuStyle}>
-                      <button onClick={handleLogout}>Log Out</button>
-                    </li>
-                  </>
-                ) : (
-                  <>
-                    <li className={menuStyle}>
-                      <Link to="/signIn">Login</Link>
-                    </li>
-                    <li className={menuStyle}>
-                      <Link to="/register">Registration</Link>
-                    </li>
-                  </>
-                )}
-              </ul>
-              <div className="divider divider-horizontal"></div>
-              <div>
-                <a href={"/dashboard"}>
-                  <Button>Create Listing</Button>
-                </a>
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            </button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-12">
+            {
+              user?.uid ?
+                navigationWithDashboard.map((item) => (
+                  <Link key={item.name} to={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                    {item.name}
+                  </Link>
+                ))
+                :
+                navigation.map((item) => (
+                  <Link key={item.name} to={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                    {item.name}
+                  </Link>
+                ))                
+            }
+          </div>
+          {
+            user?.uid ?
+              (
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                  <button onClick={logOut} type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                    Logout <span aria-hidden="true">&rarr;</span>
+                  </button>
+                </div>
+              )
+              :
+              (
+                <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+                  <Link to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                    Log in <span aria-hidden="true">&rarr;</span>
+                  </Link>
+                </div>
+              )
+          }
+        </nav>
+        <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+          <div className="fixed inset-0 z-50" />
+          <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white py-6 px-2 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <Link to="/" className="-m-1.5 p-1.5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
+                </svg>
+              </Link>
+              <button
+                type="button"
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+            </div>
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  {
+                    user?.uid ?
+                      navigationWithDashboard.map((item) => (
+                        <Link key={item.name} to={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                          {item.name}
+                        </Link>
+                      ))
+                      :
+                      navigation.map((item) => (
+                        <Link key={item.name} to={item.href} className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                          {item.name}
+                        </Link>
+                      ))
+                  }
+                </div>
+                {
+                  user?.uid ?
+                    (
+                      <div className="py-6">
+                        <button onClick={logOut} type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                          Logout <span aria-hidden="true">&rarr;</span>
+                        </button>
+                      </div>
+                    )
+                    :
+                    (
+                      <div className="py-6">
+                        <Link to="/login" className="text-sm font-semibold leading-6 text-gray-900">
+                          Log in <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                      </div>
+                    )
+                }
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* mobile navbar*/}
-        <div className={"xl:hidden"}>
-          <div className={"flex items-center"}>
-            <div>
-              <a href={"/"}>
-                <img
-                  className={"h-16"}
-                  src={"/assets/images/logo.png"}
-                  alt={"Predictiville Logo"}
-                />
-              </a>
-            </div>
-
-            <div className={"mx-16 flex-1"}></div>
-            <div>
-              <Popover>
-                <Popover.Button
-                  className={"focus:outline-none"}
-                  aria-label="menu"
-                >
-                  <GiHamburgerMenu className={"h-6 w-6 text-primary"} />
-                </Popover.Button>
-
-                <Popover.Overlay className="fixed inset-0 z-50" />
-
-                <Transition
-                  as={Fragment}
-                  enter="transition duration-100 ease-out"
-                  enterFrom="transform -translate-x-full"
-                  enterTo="transform translate-x-0"
-                  leave="transition duration-75 ease-out"
-                  leaveFrom="transform translate-x-0"
-                  leaveTo="transform -translate-x-full"
-                >
-                  <Popover.Panel
-                    className={
-                      "fixed left-0 pl-6 top-0 z-50 h-screen w-[55%] bg-transparent"
-                    }
-                  >
-                    {({ close }) => (
-                      <div
-                        className={
-                          "bg-white bg-opacity-90 mt-[5rem] pt-5 pb-5 px-5"
-                        }
-                      >
-                        <ul className={""}>
-                          {routes.map((route) => (
-                            <li
-                              key={route.label}
-                              onClick={() => close()}
-                              className={mobileMenuStyle}
-                            >
-                              <a href={route.href}>{route.label}</a>
-                            </li>
-                          ))}
-                          {user?.uid ? (
-                            <>
-                              <li className={mobileMenuStyle}>
-                                <button onClick={handleLogout}>Log Out</button>
-                              </li>
-                            </>
-                          ) : (
-                            <>
-                              <li className={mobileMenuStyle}>
-                                <Link to="/signIn">Login</Link>
-                              </li>
-                              <li className={mobileMenuStyle}>
-                                <Link to="/register">Registration</Link>
-                              </li>
-                            </>
-                          )}
-                        </ul>
-
-                        <div>
-                          <a href={"/dashboard"} onClick={() => close()}>
-                            <Button> Create Listing</Button>
-                          </a>
-                        </div>
-                      </div>
-                    )}
-                  </Popover.Panel>
-                </Transition>
-              </Popover>
-            </div>
-          </div>
-        </div>
-      </div>
-    </nav>
+          </Dialog.Panel>
+        </Dialog>
+      </section>
+    </header>
   );
 }

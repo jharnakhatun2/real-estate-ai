@@ -1,14 +1,15 @@
+import Blog from "components/blog/Blog";
 import PropertyForm from "components/dashboard/propertyForm/PropertyForm";
-import NotFound from "pages/notFound/NotFound";
-import { createBrowserRouter } from "react-router-dom";
-import Main from "../../layout/Main";
-import Home from "../../pages/home/Home";
 import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
-import Register from "pages/signUP/Register";
-import Login from "pages/signUP/Login";
+import NotFound from "pages/notFound/NotFound";
 import Properties from "pages/properties/Properties";
 import Property from "pages/properties/Property";
-
+import Login from "pages/signUP/Login";
+import Register from "pages/signUP/Register";
+import { createBrowserRouter } from "react-router-dom";
+import PrivateRoute from "routes/privateRoute/PrivateRoute";
+import Main from "../../layout/Main";
+import Home from "../../pages/home/Home";
 
 export const router = createBrowserRouter([
   {
@@ -22,19 +23,23 @@ export const router = createBrowserRouter([
       },
       {
         path: "/properties",
-        element: <Properties/>,
+        element: <Properties />,
       },
       {
         path: "/properties/:id",
-        element: <Property/>,
+        element: <Property />,
+      },
+      {
+        path: "/blog",
+        element: <Blog/>
       },
       {
         path: "/register",
-        element: <Register/>,
+        element: <Register />,
       },
       {
-        path: "/signIn",
-        element: <Login/>,
+        path: "/login",
+        element: <Login />,
       },
     ],
   },
@@ -45,7 +50,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: <PropertyForm />,
+        element: (
+          <PrivateRoute>
+            <PropertyForm />
+          </PrivateRoute>
+        ),
       }
     ],
   },
