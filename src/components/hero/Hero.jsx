@@ -5,7 +5,7 @@ export default function Hero() {
   const navigate = useNavigate();
 
   return (
-    <section className="container mx-auto px-2 md:px-0 pt-12">
+    <section className="container mx-auto px-2 md:px-4 xl:px-0 pt-12">
       <div className="flex flex-wrap flex-col-reverse md:flex-row">
         <div className="w-full sm:w-8/12 mb-10">
           <div className="container mx-auto h-full">
