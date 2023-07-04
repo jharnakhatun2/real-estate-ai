@@ -444,15 +444,6 @@ export default function Form({setPropertyData}) {
                   </button>
                   </div>
                   <div>
-                  {/* <button
-                    type="submit"
-                    className={`w-full text-white px-20 py-3 uppercase bg-[#9f95e9] hover:bg-[#7C6EE4] shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5 ${
-                      isChecked ? "" : "opacity-50 cursor-not-allowed"
-                    }`}
-                    disabled={!isChecked}
-                  >
-                    Generate Poster
-                  </button> */}
                   </div>
                 </div>
               </form>
