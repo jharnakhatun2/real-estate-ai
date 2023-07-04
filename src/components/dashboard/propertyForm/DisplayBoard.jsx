@@ -105,7 +105,11 @@ export default function DisplayBoard({ propertyData, loading }) {
         </div>
         {/* generate pdf */}
         <div>
-          <PDFDownloadLink document={<PDFFile image={imageUrl} text={createdText} />} fileName="example.pdf">
+          <PDFDownloadLink document={<PDFFile
+            image={imageUrl}
+            text={createdText}
+            valuationCost={valuationCost}
+          />} fileName="example.pdf">
             {({ loading }) =>
               loading ? <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2 hover:bg-indigo-100">Loading document...</button> : <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2 hover:bg-indigo-100">Download now</button>
             }

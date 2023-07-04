@@ -15,13 +15,18 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: "justify",
   },
+  heading: {
+    fontSize: 18,
+    fontWeight: "bold"
+  }
 });
 
-export default function PDFFile({image, text}) {
+export default function PDFFile({ image, text, valuationCost }) {
   return (
     <Document>
       <Page>
         <View style={styles.section}>
+          <Text style={styles.heading}>{valuationCost}</Text>
           <Image style={styles.image} src={image} />
           <Text style={styles.text}>{text}</Text>
         </View>

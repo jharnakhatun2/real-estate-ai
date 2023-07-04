@@ -34,6 +34,9 @@ export default function Form({ setPropertyData, setLoading }) {
   const propertyDetailsInputStyle = ["flex items-center relative w-full mb-3 shadow rounded"]
   const formInputStyle = ["block w-full rounded-l-none rtl:rounded-l rtl:rounded-r-none placeholder-gray-400/70  rounded-lg border-0  bg-white px-5 py-2.5 text-gray-700 focus:border-0 focus:outline-none focus:ring focus:ring-[#7C6EE4]"];
 
+  // search function
+
+
   return (
     <>
       <section className="-mt-2">
