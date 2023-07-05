@@ -93,27 +93,23 @@ export default function DisplayBoard({ propertyData, loading }) {
           {
             !loading && createdText && (
               <div className="flex mt-4 justify-center bg-white border divide-x rounded-lg rtl:flex-row-reverse">
-                <button onClick={handleSaveProperty} className="px-4 py-3 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 hover:bg-indigo-100">
+                <button onClick={handleSaveProperty} className="w-1/2 px-4 py-3 text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 hover:bg-indigo-100">
                   Save Property
                 </button>
-                <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2 hover:bg-indigo-100">
-                  Download as PDF
-                </button>
+                <div className="w-1/2 flex items-center justify-center hover:bg-indigo-100">
+                  <PDFDownloadLink document={<PDFFile
+                    image={imageUrl}
+                    text={createdText}
+                    valuationCost={valuationCost}
+                  />} fileName="example.pdf">
+                    {({ loading }) =>
+                      loading ? <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2">Loading document...</button> : <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2">Download as PDF</button>
+                    }
+                  </PDFDownloadLink>
+                </div>
               </div>
             )
           }
-        </div>
-        {/* generate pdf */}
-        <div>
-          <PDFDownloadLink document={<PDFFile
-            image={imageUrl}
-            text={createdText}
-            valuationCost={valuationCost}
-          />} fileName="example.pdf">
-            {({ loading }) =>
-              loading ? <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2 hover:bg-indigo-100">Loading document...</button> : <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2 hover:bg-indigo-100">Download now</button>
-            }
-          </PDFDownloadLink>
         </div>
       </div>
     </div>

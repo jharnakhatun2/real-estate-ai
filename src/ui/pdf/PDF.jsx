@@ -26,8 +26,8 @@ export default function PDFFile({ image, text, valuationCost }) {
     <Document>
       <Page>
         <View style={styles.section}>
+          {image && <Image style={styles.image} src={image} />}
           <Text style={styles.heading}>{valuationCost}</Text>
-          <Image style={styles.image} src={image} />
           <Text style={styles.text}>{text}</Text>
         </View>
       </Page>
