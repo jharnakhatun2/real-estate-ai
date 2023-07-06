@@ -4,10 +4,12 @@ import PropertiesCard from "./propertiesCard";
 import { fetchProducts } from "api/ai";
 import Loading from "ui/loading/Loading";
 import useTitle from "hook/useTitle";
+import DisplayModal from "./DisplayModal";
 
 export default function Properties() {
   const [productData, setProductData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [propertyData, setPropertyData] = useState(null);
   useTitle("Properties");
   useEffect(() => {
     setIsLoading(true)
@@ -32,10 +34,19 @@ export default function Properties() {
       <div className="container mx-auto py-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">       
           {productData &&
-            productData?.map((product) => (
-              <PropertiesCard key={product._id} product={product} />
-            ))}
+            productData?.map((product) => <PropertiesCard 
+            key={product._id} 
+            product={product}
+            setPropertyData={setPropertyData}
+            ></PropertiesCard>)}
         </div>
+        {
+          propertyData &&
+          <DisplayModal 
+          propertyData={propertyData}
+          ></DisplayModal>
+        }
+        
       </div>
     </div>
   );
