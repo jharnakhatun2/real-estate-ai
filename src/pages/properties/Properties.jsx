@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import PropertiesCard from "./propertiesCard";
 import { fetchProducts } from "api/ai";
 import Loading from "ui/loading/Loading";
+import useTitle from "hook/useTitle";
 
 export default function Properties() {
   const [productData, setProductData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  useTitle("Properties");
   useEffect(() => {
     setIsLoading(true)
     fetchProducts()

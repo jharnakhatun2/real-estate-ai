@@ -1,5 +1,6 @@
 import { AuthContext } from "context/authProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import useTitle from "hook/useTitle";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -16,7 +17,7 @@ export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-
+useTitle('LogIn')
   const handleLogin = (data) => {
     data.preventDefault();
     setLogInError('');
@@ -76,14 +77,14 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-[#f8f9fa] pt-32 pb-20">
+    <div className="bg-[url('/assets/images/6209952_3185947.jpg')] bg-fixed bg-no-repeat bg-cover  bg-center pt-32 pb-20">
       {" "}
-      <div className="mx-5 md:mx-20 lg:mx-0">
+      <div className="mx-5 md:mx-20 lg:mx-0">      
         <div className="lg:w-1/2 mx-auto shadow-lg">
           {" "}
           <div className="bg-white rounded-t-lg p-8">
             {" "}
-            <p className="text-center text-sm text-gray-400 font-light">
+            <p className="text-center text-gray-400 font-light">
               Sign in with
             </p>{" "}
             <div>
@@ -137,7 +138,7 @@ export default function Login() {
           </div>{" "}
           <div className="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24">
             {" "}
-            <p className="text-center text-sm text-gray-500 font-light">
+            <p className="text-center text-gray-500 font-light">
               {" "}
               Or sign in with credentials{" "}
             </p>{" "}

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
+import useTitle from "hook/useTitle";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -9,6 +10,7 @@ const Blog = () => {
       .then((data) => setBlogs(data));
   }, []);
 
+  useTitle('Blog');
   return (
     <section className="bg-gray-100">
       <div className="container px-10 pt-20 md:pt-28 lg:pt-28 pb-20">

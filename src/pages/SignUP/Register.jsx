@@ -1,5 +1,6 @@
 import { AuthContext } from "context/authProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import useTitle from "hook/useTitle";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -18,7 +19,7 @@ const Register = () => {
   const githubProvider = new GithubAuthProvider();
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
-
+useTitle('Register');
   const handleRegister = (data) => {
     data.preventDefault();
     setSignUpError('');
@@ -93,7 +94,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="bg-[#f8f9fa] pt-32 pb-20">
+      <div className="bg-[url('/assets/images/6209952_3185947.jpg')] bg-fixed bg-no-repeat bg-cover  bg-center pt-32 pb-20">
         {" "}
         <div className="mx-5 md:mx-20 lg:mx-0">
           <div className="lg:w-1/2 mx-auto shadow-lg">

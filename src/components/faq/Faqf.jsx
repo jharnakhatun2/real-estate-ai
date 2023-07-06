@@ -1,4 +1,7 @@
+import useTitle from "hook/useTitle"
+
 export default function Faqf() {
+	useTitle('FAQ');
   return (
     <section className="bg-gray-100 dark:bg-gray-800 dark:text-gray-100">
 	<div className="container flex flex-col justify-center px-10 pt-20 md:pt-28 lg:pt-28 pb-20 mx-auto">

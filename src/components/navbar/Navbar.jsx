@@ -25,7 +25,7 @@ export default function Navbar() {
   const { user, logOut } = useContext(AuthContext);
 
   return (
-    <header className="fixed z-10 w-full bg-white shadow-lg z-50 ">
+    <header className="fixed w-full bg-white shadow-lg z-50 ">
       <section className="container mx-auto px-2 md:px-0">
         <nav
           className="flex items-center justify-around py-4"
