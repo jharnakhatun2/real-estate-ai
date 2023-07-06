@@ -1,15 +1,19 @@
 import { PDFDownloadLink } from '@react-pdf/renderer';
-import { savePropertyToDb } from 'api/ai';
+import { generateSocialMediaPoster, savePropertyToDb } from 'api/ai';
 import imageLoading from 'assets/Animation/image-3-loading.json';
 import { AuthContext } from 'context/authProvider/AuthProvider';
+import html2canvas from 'html2canvas';
 import Lottie from "lottie-react";
-import { useContext } from 'react';
+import { useContext, useRef, useState } from 'react';
 import { toast } from 'react-hot-toast';
+import JsxToImage from 'ui/jsxToImage/JsxToImage';
 import PDFFile from 'ui/pdf/PDF';
 
 export default function DisplayBoard({ propertyData, loading }) {
   const { createdText, imageUrl, valuationCost } = propertyData || {};
   const { user } = useContext(AuthContext);
+  const ref = useRef(null);
+  const [jsxData, setJsxDta] = useState(null);
   // splited text
   // const splitedText = createdText?.split(". ");
 
@@ -36,6 +40,27 @@ export default function DisplayBoard({ propertyData, loading }) {
         toast.error(err.message);
       });
   }
+  // jsx to image
+  const handleDownload = () => {
+    html2canvas(ref.current).then(canvas => {
+      const image = canvas.toDataURL('image/jpg');
+      const link = document.createElement('a');
+      link.href = image;
+      link.download = 'media_poster.jpg';
+      link.click();
+    });
+  };
+  // generate poster
+  const handleGeneratePoster = () => {
+    const data = { features: createdText, image: imageUrl };
+    generateSocialMediaPoster(data)
+      .then((data) => {
+        console.log(data);
+        setJsxDta(data?.data);
+      }).catch((err) => {
+        console.log(err.message);
+      })
+  };
 
   return (
     <div className={!createdText && !loading && "flex justify-center items-center h-screen border-dashed border-2 m-4 border-slate-300"}>
@@ -107,10 +132,20 @@ export default function DisplayBoard({ propertyData, loading }) {
                     }
                   </PDFDownloadLink>
                 </div>
+                {/* generate social media poster */}
               </div>
             )
           }
         </div>
+        <div>
+          <button onClick={handleGeneratePoster}>Generate Social Media Poster</button>
+        </div>
+        <JsxToImage>
+          <div ref={ref} className="block">
+            {jsxData}
+          </div>
+          <button onClick={handleDownload}>Download Media Poster</button>
+        </JsxToImage>
       </div>
     </div>
   )

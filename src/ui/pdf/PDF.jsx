@@ -11,12 +11,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 100,
   },
   text: {
-    margin: 12,
+    marginTop: 4,
+    marginLeft: 12,
+    marginRight: 12,
+    marginBottom: 12,
     fontSize: 14,
     textAlign: "justify",
   },
   heading: {
-    fontSize: 18,
+    marginLeft: 12,
+    marginRight: 12,
+    marginBottom: 12,
+    fontSize: 16,
     fontWeight: "bold"
   }
 });
@@ -27,7 +33,7 @@ export default function PDFFile({ image, text, valuationCost }) {
       <Page>
         <View style={styles.section}>
           {image && <Image style={styles.image} src={image} />}
-          <Text style={styles.heading}>{valuationCost}</Text>
+          <Text style={styles.heading}>Valuation Cost: {valuationCost}</Text>
           <Text style={styles.text}>{text}</Text>
         </View>
       </Page>
