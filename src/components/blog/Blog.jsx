@@ -5,7 +5,7 @@ import useTitle from "hook/useTitle";
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    fetch("/public/blogsData.json")
+    fetch("/blogsData.json")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
