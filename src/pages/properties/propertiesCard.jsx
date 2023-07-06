@@ -4,9 +4,6 @@ export default function PropertiesCard({ product }) {
   return (
     <div className="mx-auto w-full">
       <div className="shadow p-4 rounded-lg bg-white">
-
-
-
         <div className=" rounded-lg overflow-hidden h-52">  
           <div className="relative transition-transform duration-500 transform ease-in-out hover:scale-110 w-full">
             <img src={propertyImage} className="object-cover object-center w-full h-56" alt="" />
@@ -15,9 +12,7 @@ export default function PropertiesCard({ product }) {
             </div>
           </div>
         </div>
-
-
-        <div className="my-5">{description.slice(0, 90)+"..."}</div>
+        <div className="my-5">{description?.slice(0, 90)+"..."}</div>
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <div className="rounded-full w-6 h-6 md:w-8 md:h-8 overflow-hidden">

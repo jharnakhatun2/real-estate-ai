@@ -4,7 +4,7 @@ import FaqAnimation from "../../assets/Animation/faq.json";
 const Faq = () => {
   return (
     <section className="my-8 dark:text-[#fff]">
-      <h2 className="text-center mb-10 text-4xl font-bold mt-8">Frequently Asked Questions</h2>
+      <h2 className="text-center mb-10 text-xl font-bold mt-8">Frequently Asked Questions</h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 px-10">
         <div className="-mt-8 sm:mt-32">
           <div className="">

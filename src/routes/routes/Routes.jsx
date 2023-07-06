@@ -3,14 +3,13 @@ import PropertyForm from "components/dashboard/propertyForm/PropertyForm";
 import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
 import NotFound from "pages/notFound/NotFound";
 import Properties from "pages/properties/Properties";
-import Property from "pages/properties/Property";
 import Login from "pages/signUP/Login";
 import Register from "pages/signUP/Register";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "routes/privateRoute/PrivateRoute";
 import Main from "../../layout/Main";
 import Home from "../../pages/home/Home";
-import Faq from "components/faq/Faq";
+import Faqf from "components/faq/Faqf";
 
 export const router = createBrowserRouter([
   {
@@ -27,16 +26,12 @@ export const router = createBrowserRouter([
         element: <Properties />,
       },
       {
-        path: "/properties/:id",
-        element: <Property />,
-      },
-      {
         path: "/blog",
         element: <Blog/>
       },
       {
         path: "/faq",
-        element: <Faq/>
+        element: <Faqf/>
       },
       {
         path: "/register",

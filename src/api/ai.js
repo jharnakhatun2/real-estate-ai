@@ -1,6 +1,6 @@
 export const generatePropertyInfo = async (promptData) => {
   const response = await fetch(
-    "http://localhost:5000/openai/generateTextAndImage",
+    `${import.meta.env.VITE_REACT_API_URL}/openai/generateTextAndImage`,
     {
       method: "POST",
       headers: {
@@ -14,7 +14,7 @@ export const generatePropertyInfo = async (promptData) => {
 };
 
 export const fetchProducts = async () => {
-  const response = await fetch("http://localhost:5000/properties");
+  const response = await fetch(`${import.meta.env.VITE_REACT_API_URL}/properties`);
   const data = await response.json();
   return data;
 };
