@@ -1,15 +1,19 @@
-import Contact from "components/Contact";
-import Agents from "components/agents/Agents";
-import Faq from "components/faq/Faq";
+import Clients from "components/clients/Clients";
+import Features from "components/features/Features";
 import Hero from "components/hero/Hero";
+import Testimonial from "components/testimonial/Testimonial";
+import UseGuide from "components/useGuide/UseGuide";
+import WhyShoud from "components/whyshould/WhyShoud";
 
 export default function Home() {
   return (
     <main>
       <Hero/>
-      <Agents />
-      <Contact />
-      <Faq />
+      <WhyShoud/>
+      <Features/>
+      <UseGuide/>
+     <Testimonial/>
+     <Clients/>
     </main>
   );
 }

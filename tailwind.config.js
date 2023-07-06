@@ -8,13 +8,12 @@ export default {
         sen: ["Sen", "sans-serif"],
       },
       colors: {
-        realState: "#7c6ee4",
+        primary: "#7c6ee4",
       }
     },
   },
   plugins: [
     require("@tailwindcss/forms"),
-    // require("tw-elements/dist/plugin.cjs"),
     require("daisyui"),
     require('tailwindcss-animated')
   ],

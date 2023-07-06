@@ -1,5 +1,5 @@
 export default function PropertiesCard({ product }) {
-  const { userName, description, propertyImage, createdAt, valuationCost } =
+  const { userName, description, propertyImage, valuationCost } =
     product;
   return (
     <div className="mx-auto w-full">
