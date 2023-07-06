@@ -12,10 +12,8 @@ import PDFFile from 'ui/pdf/PDF';
 export default function DisplayBoard({ propertyData, loading }) {
   const { createdText, imageUrl, valuationCost } = propertyData || {};
   const { user } = useContext(AuthContext);
-  const ref = useRef(null);
+  const jsxRef = useRef(null);
   const [jsxData, setJsxDta] = useState(null);
-  // splited text
-  // const splitedText = createdText?.split(". ");
 
   const handleSaveProperty = () => {
     const data = {
@@ -42,7 +40,7 @@ export default function DisplayBoard({ propertyData, loading }) {
   }
   // jsx to image
   const handleDownload = () => {
-    html2canvas(ref.current).then(canvas => {
+    html2canvas(jsxRef.current).then((canvas) => {
       const image = canvas.toDataURL('image/jpg');
       const link = document.createElement('a');
       link.href = image;
@@ -55,7 +53,7 @@ export default function DisplayBoard({ propertyData, loading }) {
     const data = { features: createdText, image: imageUrl };
     generateSocialMediaPoster(data)
       .then((data) => {
-        console.log(data);
+        console.log(data?.data);
         setJsxDta(data?.data);
       }).catch((err) => {
         console.log(err.message);
@@ -109,15 +107,10 @@ export default function DisplayBoard({ propertyData, loading }) {
                 </div>
               )
           }
-          {/* {
-            splitedText?.map((text, i) => (
-              <p key={i} className="text-sm text-justify">{text}</p>
-            ))
-          } */}
           {/* save button */}
           {
             !loading && createdText && (
-              <div className="flex mt-4 justify-center bg-white border divide-x rounded-lg rtl:flex-row-reverse">
+              <div className="flex my-4 justify-center bg-white border divide-x rounded-lg rtl:flex-row-reverse">
                 <button onClick={handleSaveProperty} className="w-1/2 px-4 py-3 text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 hover:bg-indigo-100">
                   Save Property
                 </button>
@@ -132,20 +125,24 @@ export default function DisplayBoard({ propertyData, loading }) {
                     }
                   </PDFDownloadLink>
                 </div>
-                {/* generate social media poster */}
+              </div>
+            )
+          }
+          {/* generate social media poster */}
+          {
+            !jsxData && (
+              <div className="my-2">
+                <button className="bg-white px-4 py-3 text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 hover:bg-indigo-100 w-full" onClick={handleGeneratePoster}>Generate Social Media Poster</button>
               </div>
             )
           }
         </div>
-        <div>
-          <button onClick={handleGeneratePoster}>Generate Social Media Poster</button>
-        </div>
-        <JsxToImage>
-          <div ref={ref} className="block">
-            {jsxData}
-          </div>
-          <button onClick={handleDownload}>Download Media Poster</button>
-        </JsxToImage>
+        <JsxToImage jsxRef={jsxRef} jsxData={jsxData} />
+        {
+          jsxData && (
+            <button className="bg-white mt-2 px-4 py-3 text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 hover:bg-indigo-100 w-full" onClick={handleDownload}>Download Media Poster</button>
+          )
+        }
       </div>
     </div>
   )
