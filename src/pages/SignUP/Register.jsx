@@ -49,8 +49,6 @@ useTitle('Register');
     });
   };
 
-  
-
   // Privacy agree checkbox
    const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
