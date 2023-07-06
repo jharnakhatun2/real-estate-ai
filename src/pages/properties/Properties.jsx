@@ -40,6 +40,7 @@ export default function Properties() {
             setPropertyData={setPropertyData}
             ></PropertiesCard>)}
         </div>
+        {/* property Valuation modal */}
         {
           propertyData &&
           <DisplayModal 
