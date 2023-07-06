@@ -2,14 +2,13 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { AuthContext } from "context/authProvider/AuthProvider";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Properties", href: "/properties" },
   { name: "Blogs", href: "/blog" },
   { name: "FAQ", href: "/faq" },
-  // { name: 'Dashboard', href: '/dashboard' },
 ];
 
 const navigationWithDashboard = [
@@ -23,21 +22,19 @@ const navigationWithDashboard = [
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+  const location = useLocation();
+
+  const isActive = (path) => {
+    return location.pathname === path ? "text-primary font-bold" : "";
+  };
 
   return (
     <header className="fixed w-full bg-white shadow-lg z-50 ">
       <section className="container mx-auto px-2 md:px-0">
-        <nav
-          className="flex items-center justify-around py-4"
-          aria-label="Global"
-        >
+        <nav className="flex items-center justify-around py-4" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5">
-              <img
-                src="https://i.ibb.co/yRF3f1P/logo2.png"
-                alt=""
-                className="w-[70%]"
-              />
+              <img src="https://i.ibb.co/yRF3f1P/logo2.png" alt="" className="w-[70%]" />
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -56,7 +53,9 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="text-sm uppercase  leading-6 text-gray-900"
+                    className={`text-sm uppercase  leading-6 text-gray-900 ${isActive(
+                      item.href
+                    )}`}
                   >
                     {item.name}
                   </Link>
@@ -65,7 +64,9 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className="text-sm uppercase  leading-6 text-gray-900"
+                    className={`text-sm uppercase  leading-6 text-gray-900 ${isActive(
+                      item.href
+                    )}`}
                   >
                     {item.name}
                   </Link>
@@ -85,7 +86,7 @@ export default function Navbar() {
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
               <Link
                 to="/login"
-                className="text-sm uppercase leading-6 text-gray-900"
+className={`text-sm uppercase leading-6 text-gray-900 ${isActive("/login")}`}
               >
                 Log in
               </Link>
@@ -132,7 +133,9 @@ export default function Navbar() {
                         <Link
                           key={item.name}
                           to={item.href}
-                          className="-mx-3 block rounded-lg px-3 text-sm uppercase leading-7 text-gray-900"
+                          className={`-mx-3 block rounded-lg px-3 text-sm uppercase leading-7 text-gray-900 ${isActive(
+                            item.href
+                          )}`}
                         >
                           <span className="pl-2">{item.name}</span>
                         </Link>
@@ -141,7 +144,9 @@ export default function Navbar() {
                         <Link
                           key={item.name}
                           to={item.href}
-                          className="-mx-3 block rounded-lg px-3 py-1 uppercase leading-7 text-gray-900 hover:bg-gray-50 text-sm hover:shadow border-b"
+                          className={`-mx-3 block rounded-lg px-3 py-1 uppercase leading-7 text-gray-900 hover:bg-gray-50 text-sm hover:shadow border-b ${isActive(
+                            item.href
+                          )}`}
                         >
                           <span className="pl-2">{item.name}</span>
                         </Link>
@@ -161,7 +166,9 @@ export default function Navbar() {
                   <div className="pb-3">
                     <Link
                       to="/login"
-                      className="text-sm uppercase leading-6 text-gray-900"
+                      className={`text-sm uppercase leading-6 text-gray-900 ${isActive(
+                        "/login"
+                      )}`}
                     >
                       <span className="pl-2">Log in </span>
                     </Link>
