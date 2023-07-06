@@ -15,7 +15,6 @@ export default function Properties() {
     setIsLoading(true)
     fetchProducts()
       .then((data) => {
-        console.log(data.data);
         setProductData(data.data);
         setIsLoading(false);
       })
