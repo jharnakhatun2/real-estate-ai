@@ -12,7 +12,7 @@ import Home from "../../pages/home/Home";
 import Faqf from "components/faq/Faqf";
 import BlogDetail from "components/blog/BlogDetail";
 import PrivacyPolicyPage from "components/privacyPolicyPage/PrivacyPolicyPage";
-import TermsOfServicePage from "components/TermsOfServicePage/termsOfServicePage";
+import TermsOfServicePage from "components/TermsOfServicePage/TermsOfServicePage";
 
 export const router = createBrowserRouter([
   {

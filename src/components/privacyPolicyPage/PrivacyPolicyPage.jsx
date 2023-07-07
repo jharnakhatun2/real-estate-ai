@@ -2,7 +2,7 @@ const PrivacyPolicyPage = () => {
     return (
       <div className="bg-gray-100">
       <div className="container mx-auto px-4 pb-10 pt-20 md:pt-24 lg:pt-24">
-      <h1 className="text-2xl md:text-3xl font-bold mb-4">Privacy Policy</h1>
+      <h1 className="text-2xl md:text-4xl font-bold mb-4">Privacy Policy</h1>
       <p className="mb-4">
         At Realestate Genius, we value the privacy of our users and are committed to protecting it. This Privacy Policy outlines how we collect, use, and safeguard your personal information when you use our website.
       </p>
