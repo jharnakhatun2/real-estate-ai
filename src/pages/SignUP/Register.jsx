@@ -11,46 +11,45 @@ const Register = () => {
     register,
     formState: { errors },
     handleSubmit,
-    reset
+    reset,
   } = useForm();
-  const {createUser, updateUser, providerLogin} = useContext(AuthContext);
-  const [signupError, setSignUpError] = useState('');
+  const { createUser, updateUser, providerLogin } = useContext(AuthContext);
+  const [signupError, setSignUpError] = useState("");
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
-useTitle('Register');
+  useTitle("Register");
   const handleRegister = (data) => {
-    data.preventDefault();
-    setSignUpError('');
+    setSignUpError("");
     createUser(data.email, data.password)
-    .then(result =>{
-      const user = result.user;
-      console.log(user);
-      const userName = {
-        displayName: data.username
-      }
-      updateUser(userName)
-      .then(() => {})
-      .catch(err => console.log(err));
-      toast('Your registration is Successful (•‿•)', {
-        style: {
-          border: '1px solid #fff',
-          backgroundColor: '#4cd137',
-          color: '#000'
-        },
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        const userName = {
+          displayName: data.username,
+        };
+        updateUser(userName)
+          .then(() => {})
+          .catch((err) => console.log(err));
+        toast("Your registration is Successful (•‿•)", {
+          style: {
+            border: "1px solid #fff",
+            backgroundColor: "#4cd137",
+            color: "#000",
+          },
+        });
+        navigate("/dashboard");
+        reset();
+      })
+      .catch((err) => {
+        console.log(err);
+        setSignUpError(err.message);
       });
-      navigate('/dashboard');
-      reset();
-    })
-    .catch(err => {
-      console.log(err);
-      setSignUpError(err.message);
-    });
   };
 
   // Privacy agree checkbox
-   const handleCheckboxChange = (event) => {
+  const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
 
@@ -60,11 +59,11 @@ useTitle('Register');
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast('Your registration is Successful (•‿•)', {
+        toast("Your registration is Successful (•‿•)", {
           style: {
-            border: '1px solid #fff',
-            backgroundColor: '#4cd137',
-            color: '#000'
+            border: "1px solid #fff",
+            backgroundColor: "#4cd137",
+            color: "#000",
           },
         });
         navigate("/dashboard");
@@ -78,11 +77,11 @@ useTitle('Register');
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast('Your registration is Successful (•‿•)', {
+        toast("Your registration is Successful (•‿•)", {
           style: {
-            border: '1px solid #fff',
-            backgroundColor: '#4cd137',
-            color: '#000'
+            border: "1px solid #fff",
+            backgroundColor: "#4cd137",
+            color: "#000",
           },
         });
         navigate("/dashboard");
@@ -107,7 +106,10 @@ useTitle('Register');
                 {/* Registration with Social media */}
                 <div className="flex items-center justify-center space-x-4 mt-3">
                   {" "}
-                  <button onClick={handleGithubSignIn} className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                  <button
+                    onClick={handleGithubSignIn}
+                    className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                  >
                     {" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -123,7 +125,10 @@ useTitle('Register');
                     Github{" "}
                   </button>{" "}
                   {/* SignIn with Google */}
-                  <button onClick={handleGoogleSignIn} className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                  <button
+                    onClick={handleGoogleSignIn}
+                    className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                  >
                     {" "}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -233,7 +238,8 @@ useTitle('Register');
                       },
                       pattern: {
                         value: /(?=.*[A-Z])(?=.*[@#$&*])(?=.*[0-9])/,
-                        message: "Password must have uppercase, number and special characters",
+                        message:
+                          "Password must have uppercase, number and special characters",
                       },
                     })}
                     className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
@@ -300,9 +306,7 @@ useTitle('Register');
                     {" "}
                     Create Account{" "}
                   </button>{" "}
-                </div>
-                
-                {" "}
+                </div>{" "}
               </form>{" "}
             </div>{" "}
           </div>
