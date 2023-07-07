@@ -29,10 +29,11 @@ useTitle('LogIn')
       toast('Log In Successful 👍', {
         style: {
           border: '1px solid #ffffff',
-          backgroundColor: '#9f95e9'
+          backgroundColor: '#9f95e9',
+          color: "#ffffff",
         },
       });
-      navigate(from, { replace: true });
+      navigate("/dashboard");
       reset();
     })
     .catch(err => {
@@ -54,7 +55,7 @@ useTitle('LogIn')
             backgroundColor: '#9f95e9'
           },
         });
-        navigate(from, { replace: true });
+        navigate("/dashboard");
       })
       .catch((err) => console.log(err));
   };
@@ -71,7 +72,7 @@ useTitle('LogIn')
             backgroundColor: '#9f95e9'
           },
         });
-        navigate(from, { replace: true });
+        navigate("/dashboard");
       })
       .catch((err) => console.log(err));
   };
