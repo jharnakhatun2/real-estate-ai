@@ -10,6 +10,9 @@ import PrivateRoute from "routes/privateRoute/PrivateRoute";
 import Main from "../../layout/Main";
 import Home from "../../pages/home/Home";
 import Faqf from "components/faq/Faqf";
+import BlogDetail from "components/blog/BlogDetail";
+import PrivacyPolicyPage from "components/privacyPolicyPage/PrivacyPolicyPage";
+import TermsOfServicePage from "components/TermsOfServicePage/termsOfServicePage";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +33,10 @@ export const router = createBrowserRouter([
         element: <Blog/>
       },
       {
+        path: "/blog/:id",
+        element: <BlogDetail/>
+      },
+      {
         path: "/faq",
         element: <Faqf/>
       },
@@ -40,6 +47,14 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPolicyPage/>,
+      },
+      {
+        path: "/term",
+        element: <TermsOfServicePage/>,
       },
     ],
   },
