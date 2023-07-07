@@ -11,7 +11,7 @@ export default function PropertiesCard({ product,setPropertyData }) {
               alt=""
             />
             <div className="absolute transition-opacity duration-500 ease-linear opacity-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -ms-transform text-center">
-              <div className="bg-green-500 text-white text-base px-8 py-4">
+              <div className="bg-primary text-white text-base px-8 py-4">
                 Jharna
               </div>
             </div>

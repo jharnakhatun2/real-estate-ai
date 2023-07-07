@@ -32,7 +32,7 @@ export default function Hero() {
                     </Link>
                     <Link to="/properties">
                       <button className="hover:bg-[#ddd9ff] mt-3 md:mt-0 lg:mt-0  text-primary border-2 w-full md:w-auto text-md px-8 py-3 rounded-sm transition">
-                        Exist Property
+                        Existing Properties
                       </button>
                     </Link>
                   </div>

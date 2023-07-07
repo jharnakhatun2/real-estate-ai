@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import NewsletterSubscribe from "./NewsletterSubscribe ";
 
 export default function Footer() {
@@ -108,7 +109,7 @@ export default function Footer() {
           &copy; {new Date().getFullYear()} ReaEstateGenious. All rights reserved.
         </p>
         <p className="text-sm mt-2">
-          Powered by OpenAI | <a href="/privacy" className="text-[#a3a5a7] hover:text-[#7C6EE4]">Privacy Policy</a> | <a href="/terms" className="text-[#a3a5a7] hover:text-[#7C6EE4]">Terms of Service</a>
+          Powered by OpenAI | <a href="/privacy" className="text-[#a3a5a7] hover:text-[#7C6EE4]"><Link to="/privacy">Privacy Policy</Link></a> | <a href="/terms" className="text-[#a3a5a7] hover:text-[#7C6EE4]"><Link to="/term">Terms of Service</Link></a>
         </p>
       </div>
     </div>
