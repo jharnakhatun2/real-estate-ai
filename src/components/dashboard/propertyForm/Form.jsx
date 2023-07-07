@@ -1,7 +1,7 @@
 import { generatePropertyInfo } from "api/ai";
 import { useForm } from "react-hook-form";
 
-export default function Form({ setPropertyData, setLoading }) {
+export default function Form({ setPropertyData, setLoading, setJsxData }) {
   const {
     register,
     handleSubmit,
@@ -14,6 +14,7 @@ export default function Form({ setPropertyData, setLoading }) {
     const finalPromptData = joinedArr.join("\n");
     console.log(finalPromptData)
     const prompt = { prompt: finalPromptData, size: "medium" };
+    setJsxData(null);
     setLoading(true);
     // send request to generate info
     generatePropertyInfo(prompt)
