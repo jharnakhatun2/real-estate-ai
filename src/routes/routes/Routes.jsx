@@ -3,13 +3,13 @@ import PropertyForm from "components/dashboard/propertyForm/PropertyForm";
 import DashboardLayout from "layout/dasboardLayout/DashboardLayout";
 import NotFound from "pages/notFound/NotFound";
 import Properties from "pages/properties/Properties";
-import Login from "pages/signUP/Login";
 import Register from "pages/signUP/Register";
 import { createBrowserRouter } from "react-router-dom";
 import PrivateRoute from "routes/privateRoute/PrivateRoute";
 import Main from "../../layout/Main";
 import Home from "../../pages/home/Home";
 import Faqf from "components/faq/Faqf";
+import Login from "pages/SignUP/Login";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +39,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />,
+        element: <Login/>,
       },
     ],
   },
