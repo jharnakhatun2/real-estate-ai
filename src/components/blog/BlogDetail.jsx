@@ -30,7 +30,7 @@ export default function BlogDetail() {
   }, [_id]);
 
   return (
-    <div className="bg-gray-100 py-10 px-3 md:px-5">
+    <div className="bg-gray-100 py-12 md:py-16 px-6 md:px-5">
       <div className="max-w-screen-xl mx-auto ">
         {/* header ends here */}
         <main className="mt-10">

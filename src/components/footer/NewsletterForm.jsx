@@ -54,7 +54,7 @@ const NewsletterForm = ({ status, message, onSubmitted }) => {
     <>
       {/* --------------Newsletter form input field------------- */}
       <div className="">
-        <div className="pt-1">
+        <div className="">
           <input
             onChange={(event) => setEmail(event?.target?.value ?? "")}
             type="email"
@@ -63,7 +63,7 @@ const NewsletterForm = ({ status, message, onSubmitted }) => {
             onKeyUp={(event) => handleInputKeyEvent(event)}
           />
           <button
-            className="bg-primary text-sm p-[10px] text-white"
+            className="bg-primary text-sm p-[10px] text-white mt-2"
             onClick={handleFormSubmit}
           >
             Submit

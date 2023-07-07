@@ -4,8 +4,8 @@ export default function Faqf() {
 	useTitle('FAQ');
   return (
     <section className="bg-gray-100 dark:bg-gray-800 dark:text-gray-100">
-	<div className="container flex flex-col justify-center px-10 pt-20 md:pt-28 lg:pt-28 pb-20 mx-auto">
-		<h2 className="text-xl font-semibold lg:text-3xl">Frequently Asked Questions</h2>
+	<div className="container flex flex-col justify-center px-5 md:px-20 lg:px-10 pt-20 md:pt-28 lg:pt-28 pb-20 mx-auto">
+		<h2 className="font-semibold text-2xl md:text-3xl lg:text-3xl">Frequently Asked Questions</h2>
         <div className="divider my-1 bg-primary h-[5px] w-[5%] "></div>
 		<p className="mt-2 mb-8 dark:text-gray-400 lg:w-[60%]">We can enhance user satisfaction, reduce support inquiries, and provide a convenient resource for users to find the information they need quickly and easily.</p>
 		<div className="space-y-4">

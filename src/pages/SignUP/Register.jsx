@@ -91,7 +91,7 @@ const Register = () => {
 
   return (
     <>
-      <div className="bg-[url('/assets/images/6209952_3185947.jpg')] bg-fixed bg-no-repeat bg-cover  bg-center pt-32 pb-20">
+      <div className="bg-[url('/assets/images/logBg.jpg')] bg-fixed bg-no-repeat bg-cover  bg-center pt-32 pb-20 overflow-hidden">
         {" "}
         <div className="mx-5 md:mx-20 lg:mx-0">
           <div className="lg:w-1/2 mx-auto shadow-lg">

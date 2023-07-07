@@ -40,7 +40,7 @@ export default function PropertiesCard({ product,setPropertyData }) {
             {/* The button to open modal */}
             <label
               htmlFor="display-modal"
-              className="bg-primary text-white text-sm py-[7px] px-[8px] rounded hover:bg-gradient-to-r hover:from-blue-500 hover:to-[#7C6EE4] transition"
+              className="bg-primary text-white text-sm py-[10px] px-[8px] rounded hover:bg-gradient-to-r hover:from-blue-500 hover:to-[#7C6EE4] transition"
               onClick={()=>setPropertyData(product)}
             >
               View Details
