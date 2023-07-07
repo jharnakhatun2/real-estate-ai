@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import BlogCard from "./BlogCard";
 import useTitle from "hook/useTitle";
+import { Link } from "react-router-dom";
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -21,9 +22,11 @@ const Blog = () => {
     </div>
     <div className="divider mt-0"></div>
         <div>
-          {blogs.map((blog) => (
-            <BlogCard key={blog._id} blog={blog} />
-          ))}
+          {blogs.map((blog) => {
+            return <Link to={`/blog/${blog._id}`} key={blog._id}>
+            <BlogCard blog={blog} />
+            </Link>
+          })}
         </div>
       </div>
     </section>

@@ -39,35 +39,36 @@ export default function Testimonial() {
   return (
     <section className="bg-gray-200 dark:bg-gray-900">
       <div className="container px-6 py-10 lg:py-20 mx-auto">
-        <div>
-          <h1 className="text-2xl lg:text-5xl font-bold tracki text-center dark:text-gray-50">
+        <div className="py-7">
+          <h1 className="text-3xl font-bold tracking text-center sm:text-5xl dark:text-gray-50">
             Clients says <span className="text-primary">...</span>
           </h1>
           <div className="divider my-1 bg-primary h-[5px] w-[5%] mx-auto"></div>
-          <p className="py-3 text-sm lg:text-lg w-full lg:w-[40%] mx-auto text-center text-gray-600">
-            Feedback are invaluable sources of fuel the <br/>growth and improvement
+          <p className="w-full md:w-[90%] lg:w-[60%] text-lg mx-auto text-center text-gray-500  dark:text-gray-300">
+            Feedback are invaluable sources of fuel the <br />
+            growth and improvement
           </p>
         </div>
         <div className="flex items-start max-w-6xl mx-auto">
-        <Swiper
-          spaceBetween={30}
-          centeredSlides={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          modules={[Autoplay, Pagination]}
-          className="mySwiper"
-        >
-          {reviews.map((review) => {
-            const { id, clientName, designation, feedback, url } = review;
-            return (
-              <SwiperSlide key={id}>
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Autoplay, Pagination]}
+            className="mySwiper"
+          >
+            {reviews.map((review) => {
+              const { id, clientName, designation, feedback, url } = review;
+              return (
+                <SwiperSlide key={id}>
                   <div>
-                  <svg
+                    <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="38"
                       height="38"
@@ -81,7 +82,7 @@ export default function Testimonial() {
                     <p className="flex items-center text-center text-gray-500 mx-2nmp run">
                       {feedback}
                     </p>
-                    <div className="flex flex-col items-center justify-center mt-8">
+                    <div className="flex flex-col items-center justify-center my-8">
                       <img
                         className="object-cover rounded-full w-14 h-14"
                         src={url}
@@ -97,10 +98,10 @@ export default function Testimonial() {
                       </div>
                     </div>
                   </div>
-              </SwiperSlide>
-            );
-          })}
-        </Swiper>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
         </div>
       </div>
     </section>

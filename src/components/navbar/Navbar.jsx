@@ -34,7 +34,7 @@ export default function Navbar() {
         <nav className="flex items-center justify-around py-4" aria-label="Global">
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5">
-              <img src="https://i.ibb.co/yRF3f1P/logo2.png" alt="" className="w-[70%]" />
+              <img src="https://i.ibb.co/yRF3f1P/logo2.png" alt="" className="w-[80%]" />
             </Link>
           </div>
           <div className="flex lg:hidden">
