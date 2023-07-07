@@ -6,41 +6,44 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
-
 export default function Login() {
-  const { register, formState: { errors }, handleSubmit, reset } = useForm();
-  const {signIn, providerLogin} = useContext(AuthContext);
-  const [passwordError, setPasswordError] = useState('');
-  const [logInError, setLogInError] = useState('');
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
+  const { signIn, providerLogin } = useContext(AuthContext);
+  const [passwordError, setPasswordError] = useState("");
+  const [logInError, setLogInError] = useState("");
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const navigate = useNavigate();
   const location = useLocation();
   const from = location?.state?.from?.pathname || "/";
-useTitle('LogIn')
+  useTitle("LogIn");
   const handleLogin = (data) => {
-    data.preventDefault();
-    setLogInError('');
-    setPasswordError('');
+    setLogInError("");
+    setPasswordError("");
     signIn(data.email, data.password)
-    .then(result =>{
-      const user = result.user;
-      console.log(user);
-      toast('Log In Successful 👍', {
-        style: {
-          border: '1px solid #ffffff',
-          backgroundColor: '#9f95e9'
-        },
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast("Log In Successful 👍", {
+          style: {
+            border: "1px solid #ffffff",
+            backgroundColor: "#9f95e9",
+          },
+        });
+        navigate(from, { replace: true });
+        reset();
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setPasswordError(err.message);
+        setLogInError(err.message);
       });
-      navigate(from, { replace: true });
-      reset();
-    })
-    .catch(err => {
-      console.log(err.message);
-      setPasswordError(err.message);
-      setLogInError(err.message);
-    });
-  }
+  };
 
   // register with Google
   const handleGoogleSignIn = () => {
@@ -48,10 +51,10 @@ useTitle('LogIn')
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast('Log In Successful 👍', {
+        toast("Log In Successful 👍", {
           style: {
-            border: '1px solid #ffffff',
-            backgroundColor: '#9f95e9'
+            border: "1px solid #ffffff",
+            backgroundColor: "#9f95e9",
           },
         });
         navigate(from, { replace: true });
@@ -65,10 +68,10 @@ useTitle('LogIn')
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast('Log In Successful 👍', {
+        toast("Log In Successful 👍", {
           style: {
-            border: '1px solid #ffffff',
-            backgroundColor: '#9f95e9'
+            border: "1px solid #ffffff",
+            backgroundColor: "#9f95e9",
           },
         });
         navigate(from, { replace: true });
@@ -79,7 +82,7 @@ useTitle('LogIn')
   return (
     <div className="bg-[url('/assets/images/6209952_3185947.jpg')] bg-fixed bg-no-repeat bg-cover  bg-center pt-32 pb-20">
       {" "}
-      <div className="mx-5 md:mx-20 lg:mx-0">      
+      <div className="mx-5 md:mx-20 lg:mx-0">
         <div className="lg:w-1/2 mx-auto shadow-lg">
           {" "}
           <div className="bg-white rounded-t-lg p-8">
@@ -91,7 +94,10 @@ useTitle('LogIn')
               {" "}
               <div className="flex items-center justify-center space-x-4 mt-3">
                 {" "}
-                <button onClick={handleGithubSignIn} className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <button
+                  onClick={handleGithubSignIn}
+                  className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                >
                   {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +112,10 @@ useTitle('LogIn')
                   </svg>{" "}
                   Github{" "}
                 </button>{" "}
-                <button onClick={handleGoogleSignIn} className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="flex items-center py-2 px-4 text-sm uppercase rounded bg-white hover:bg-gray-100 text-[#7C6EE4] border border-transparent hover:border-transparent hover:text-gray-700 shadow-md hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                >
                   {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -142,79 +151,78 @@ useTitle('LogIn')
               {" "}
               Or sign in with credentials{" "}
             </p>{" "}
-
             {/* Login Form */}
             <form onSubmit={handleSubmit(handleLogin)} className="mt-6">
               {" "}
               {/* Email Input Field */}
               <div className="relative mt-3">
+                {" "}
+                <input
+                  {...register("email", { required: "Email is required !" })}
+                  className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
+                  id="email"
+                  type="email"
+                  placeholder="Email"
+                />{" "}
+                <div className="absolute left-0 inset-y-0 flex items-center">
                   {" "}
-                  <input
-                    {...register("email", { required: "Email is required !" })}
-                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                    id="email"
-                    type="email"
-                    placeholder="Email"
-                  />{" "}
-                  <div className="absolute left-0 inset-y-0 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-7 w-7 ml-3 text-gray-400 p-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
                     {" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-7 w-7 ml-3 text-gray-400 p-1"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      {" "}
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />{" "}
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />{" "}
-                    </svg>{" "}
-                  </div>{" "}
-                </div>
-                {errors.email && (
-                  <p className="text-danger" role="alert">
-                    {errors.email?.message}
-                  </p>
-                )}{" "}
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />{" "}
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />{" "}
+                  </svg>{" "}
+                </div>{" "}
+              </div>
+              {errors.email && (
+                <p className="text-danger" role="alert">
+                  {errors.email?.message}
+                </p>
+              )}{" "}
               {/* Password Input Field */}
-             <div className="relative mt-3">
+              <div className="relative mt-3">
+                {" "}
+                <input
+                  {...register("password", {
+                    required: "Password is required !",
+                  })}
+                  className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                />{" "}
+                <div className="absolute left-0 inset-y-0 flex items-center">
                   {" "}
-                  <input
-                    {...register("password", {
-                      required: "Password is required !"
-                    })}
-                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                    id="password"
-                    type="password"
-                    placeholder="Password"
-                  />{" "}
-                  <div className="absolute left-0 inset-y-0 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-7 w-7 ml-3 text-gray-400 p-1"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
                     {" "}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-7 w-7 ml-3 text-gray-400 p-1"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      {" "}
-                      <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />{" "}
-                    </svg>{" "}
-                  </div>{" "}
-                </div>
-                {errors.password && (
-                  <p className="text-danger" role="alert">
-                    {errors.password?.message}
-                  </p>
-                )}
-                {passwordError && (
-                  <p className="text-danger" role="alert">
-                    {passwordError}
-                  </p>
-                )}{" "}
-                {logInError && (
-                  <p className="text-danger" role="alert">
-                    {logInError}
-                  </p>
-                )}{" "}
+                    <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />{" "}
+                  </svg>{" "}
+                </div>{" "}
+              </div>
+              {errors.password && (
+                <p className="text-danger" role="alert">
+                  {errors.password?.message}
+                </p>
+              )}
+              {passwordError && (
+                <p className="text-danger" role="alert">
+                  {passwordError}
+                </p>
+              )}{" "}
+              {logInError && (
+                <p className="text-danger" role="alert">
+                  {logInError}
+                </p>
+              )}{" "}
               <p className="mt-4 italic text-gray-500 font-light text-xs">
                 Already have an account?{" "}
                 <span className="font-bold text-indigo-400 border p-1 border-gray-300 rounded text-md">
@@ -224,7 +232,10 @@ useTitle('LogIn')
               {/* Form Submit  */}
               <div className="flex items-center justify-center mt-8">
                 {" "}
-                <button type="submit" className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <button
+                  type="submit"
+                  className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
+                >
                   {" "}
                   Log in{" "}
                 </button>{" "}
