@@ -9,11 +9,11 @@ import { toast } from 'react-hot-toast';
 import JsxToImage from 'ui/jsxToImage/JsxToImage';
 import PDFFile from 'ui/pdf/PDF';
 
-export default function DisplayBoard({ propertyData, loading }) {
+export default function DisplayBoard({ propertyData, loading, jsxData, setJsxData }) {
   const { createdText, imageUrl, valuationCost } = propertyData || {};
   const { user } = useContext(AuthContext);
   const jsxRef = useRef(null);
-  const [jsxData, setJsxDta] = useState(null);
+  const [mediaLoading, setMediaLoading] = useState(false);
 
   const handleSaveProperty = () => {
     const data = {
@@ -40,7 +40,7 @@ export default function DisplayBoard({ propertyData, loading }) {
   }
   // jsx to image
   const handleDownload = () => {
-    html2canvas(jsxRef.current).then((canvas) => {
+    html2canvas(jsxRef.current, { useCORS: true }).then((canvas) => {
       const image = canvas.toDataURL('image/jpg');
       const link = document.createElement('a');
       link.href = image;
@@ -50,20 +50,23 @@ export default function DisplayBoard({ propertyData, loading }) {
   };
   // generate poster
   const handleGeneratePoster = () => {
+    setMediaLoading(true);
     const data = { features: createdText, image: imageUrl };
     generateSocialMediaPoster(data)
       .then((data) => {
         console.log(data?.data);
-        setJsxDta(data?.data);
+        setJsxData(data?.data);
+        setMediaLoading(false);
       }).catch((err) => {
         console.log(err.message);
+        setMediaLoading(false);
       })
   };
 
   return (
     <div className={!createdText && !loading && "flex justify-center items-center h-screen border-dashed border-2 m-4 border-slate-300"}>
       <div className="p-4">
-        <div>
+        <div className={jsxData ? "hidden" : "block"}>
           {
             loading ?
               <div>
@@ -83,7 +86,7 @@ export default function DisplayBoard({ propertyData, loading }) {
             </div>
           )
         }
-        <div>
+        <div className={jsxData ? "hidden" : "block"}>
           {
             loading ?
               (
@@ -119,7 +122,7 @@ export default function DisplayBoard({ propertyData, loading }) {
                     image={imageUrl}
                     text={createdText}
                     valuationCost={valuationCost}
-                  />} fileName="example.pdf">
+                  />} fileName="estate__property.pdf">
                     {({ loading }) =>
                       loading ? <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2">Loading document...</button> : <button className="px-2 py-2 w-full text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-2">Download as PDF</button>
                     }
@@ -132,7 +135,12 @@ export default function DisplayBoard({ propertyData, loading }) {
           {
             !loading && createdText && !jsxData && (
               <div className="my-2">
-                <button className="bg-white px-4 py-3 text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 hover:bg-indigo-100 w-full" onClick={handleGeneratePoster}>Generate Social Media Poster</button>
+                <button className="bg-white px-4 py-3 text-sm font-semibold text-gray-600 transition-colors duration-200 sm:text-base sm:px-6 hover:bg-indigo-100 w-full"
+                  onClick={handleGeneratePoster}>
+                  {
+                    mediaLoading ? <span className="animate-pulse">Generating Media Poster...</span> : "Generate Social Media Poster"
+                  }
+                </button>
               </div>
             )
           }
@@ -145,5 +153,5 @@ export default function DisplayBoard({ propertyData, loading }) {
         }
       </div>
     </div>
-  )
+  );
 }
