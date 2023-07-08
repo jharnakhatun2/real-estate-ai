@@ -77,7 +77,7 @@ RealEstateGenius can be utilized in various scenarios within the real estate ind
 ## Team Contributions
 Our team, Tech Transformers, consists of four members. Here are their contributions:
 
-- Jharna Khatun: Team Management, Frontend UI Design and Development, Google SignIn SignUp with Firebase, Property Listings, Property Details, Testimonial, Mailchimp Subscriptions, User guide diagram, Mobile Responsiveness.
+- Jharna Khatun: Team Management, Frontend UI Design and Development, Pages(Logo, URl icon, Header, Footer, Action Button, Home, Properties, Blog Details, Privacy Policy, Terms Services, README.md) Google SignIn SignUp with Firebase, Property Listings, Property Details, Testimonial, Mailchimp Subscriptions, User guide diagram, Mobile Responsiveness.
 - Noyan Dey: Backend and Server-side Development, Open AI Generator Management, Property description and image generation with open AI, Social media poster generation with open AI, Generated Property & Poster PDF download, Property dashboard form, Display board in frontend UI.
 - Md Atikur Rahman: Blog and Articles, FAQ, Social Media Integration.
 - Sohanur Rahman Emon: Git Management, Problem Solving.
