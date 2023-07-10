@@ -1,10 +1,11 @@
 # RealEstateGenius
-
+Welcome to the Real Estate AI Client Site repository - Empowering the real estate industry with accurate valuations, RealEstate property description and image generation powered by Open AI, social media posters generation, and PDF reports.
 ## Table of Contents
 - [RealEstateGenius](#realestategenius)
   - [Table of Contents](#table-of-contents)
   - [Live Site](#live-site)
   - [Git Repositories](#git-repositories)
+  - [Instruction Video](#instruction-video)
   - [Technologies](#technologies)
   - [Introduction - The Project's Aim](#introduction---the-projects-aim)
   - [Project Features](#project-features)
@@ -27,14 +28,18 @@
 ## Git Repositories
 - [Github Client Repo](https://github.com/jharnakhatun2/real-estate-ai)
 - [Github Server Repo](https://github.com/codernoyan/real-estate-ai-server)
-
+  
+## Instruction Video
+- [Video Link](https://vimeo.com/manage/videos/843961242)
+  
 ## Technologies
 - Open AI API
-- React + Vite
+- React.js + Vite
 - Tailwind CSS
 - Express.js
 - Node.js
 - MongoDB
+- Firebase
 - Npm packages
 
 ## Introduction - The Project's Aim
