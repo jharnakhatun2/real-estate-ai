@@ -62,9 +62,13 @@ The aim of RealEstateGenius is to revolutionize the property valuation process u
 - Toast messages
 
 ## Property Generation Screenshot
+- Step One :
 ![Alt text](/src/assets/readme/1.png)
+- Step Two :
 ![Alt text](/src/assets/readme/2.png)
+- Step Three :
 ![Alt text](/src/assets/readme/3.png)
+- Step Four :
 ![Alt text](/src/assets/readme/4.png)
 ## Installation
 To run the RealEstateGenius project, please follow these steps:
