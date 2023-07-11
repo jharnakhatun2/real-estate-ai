@@ -9,6 +9,7 @@ Welcome to the Real Estate AI Client Site repository - Empowering the real estat
   - [Technologies](#technologies)
   - [Introduction - The Project's Aim](#introduction---the-projects-aim)
   - [Project Features](#project-features)
+  - [Property Generation Screenshot](#property-generation-screenshot)
   - [Installation](#installation)
     - [Minimum Hardware Requirements](#minimum-hardware-requirements)
   - [Usage](#usage)
@@ -60,6 +61,11 @@ The aim of RealEstateGenius is to revolutionize the property valuation process u
 - Testimonials
 - Toast messages
 
+## Property Generation Screenshot
+![Alt text](/src/assets/readme/1.png)
+![Alt text](/src/assets/readme/2.png)
+![Alt text](/src/assets/readme/3.png)
+![Alt text](/src/assets/readme/4.png)
 ## Installation
 To run the RealEstateGenius project, please follow these steps:
 1. Clone the Git client repository from [here](https://github.com/jharnakhatun2/real-estate-ai).
